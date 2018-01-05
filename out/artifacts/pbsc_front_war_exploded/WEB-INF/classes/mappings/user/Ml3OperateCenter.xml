@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.user.dao.IMl3OperateCenterDao">
+    <select id="get"
+            resultType="com.rmkj.microcap.modules.user.entity.Ml3OperateCenterBean">
+        SELECT
+        ml3_operate_center.id as id,
+        ml3_operate_center.name as name,
+        ml3_operate_center.money as money,
+        ml3_operate_center.return_fee_percent as returnFeePercent,
+        ml3_operate_center.bond_money as bondMoney,
+        ml3_operate_center.real_name as realName,
+        ml3_operate_center.id_card as idCard,
+        ml3_operate_center.bank_account_name as bankAccountName,
+        ml3_operate_center.bank_account as bankAccount,
+        ml3_operate_center.bank_name as bankName,
+        ml3_operate_center.bank_child_name as bankChildName,
+        ml3_operate_center.status as status
+        FROM
+    tb_ml3_operate_center ml3_operate_center
+        where id= #{id}
+    </select>
+
+    <select id="getOperateCenterPercent" parameterType="string" resultType="BigDecimal">
+        SELECT return_percent_center FROM tb_ml3_operate_center where id=#{centerId}
+    </select>
+</mapper>

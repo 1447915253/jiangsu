@@ -1,0 +1,31 @@
+.xiadan_cuo{
+    color:#bababa;
+    font-size:0.35rem;
+}
+.chognshi{
+    width: 2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 0.4rem;
+    display: inline-block;
+    margin-left: 5rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.forget{
+    line-height: 1.2rem;
+    background: transparent;
+    width: 2rem;
+    height: 1.2rem;
+    font-size: 0.4rem;
+    display: inline-block;
+    text-align: center;
+    color:#3ea4ee;
+    margin-top: 0.5rem;
+}
+/*.pop_bd {*/
+    /*box-shadow: 0 0 5rem #5c6366;*/
+/*}*/

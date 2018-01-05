@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.index.dao.ScheduleDao">
+    <select id="queryUnits" resultType="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits">
+        SELECT
+          id AS id,
+          center_id AS centerId,
+          name AS name,
+          agent_invite_code AS agentInviteCode,
+          two_level_domain AS twoLevelDomain,
+          money AS money,
+          bond_money AS bondMoney,
+          real_name AS realName,
+          id_card AS idCard,
+          bank_account_name AS bankAccountName,
+          bank_account AS bankAccount,
+          bank_name AS bankName,
+          bank_child_name AS bankChildName,
+          status AS status
+        FROM tb_ml3_member_units
+    </select>
+
+    <update id="overtimeMoneyIn" parameterType="java.util.Date">
+        UPDATE tb_money_record SET status = 2, failure_reason='超时失败' WHERE create_time &lt; #{date} AND `status` = 0 AND `type` = 0
+    </update>
+
+    <select id="queryParameterSet" resultType="java.util.Map">
+        SELECT * FROM tb_parameter_set limit 0,1
+    </select>
+
+    <select id="queryWechatMessage" resultType="com.rmkj.microcap.modules.weChatPublic.entity.WechatMessage">
+        SELECT
+          `type`,
+          send_type AS sendType,
+          content
+        FROM tb_wechat_message
+    </select>
+
+</mapper>

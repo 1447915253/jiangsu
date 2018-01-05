@@ -1,0 +1,65 @@
+.xieyi {
+    color: #bababa;
+    font-size: 0.33rem;
+    text-align: left;
+    line-height: 0.55rem;
+    padding: 0.4rem;
+    height: 10.8rem;
+    overflow: auto;
+    letter-spacing:0.03rem;
+}
+.pop_bd {
+    width: 7rem;
+    height:16.5rem;
+    background: #002b54;
+    margin: 1.3rem auto 0 auto;
+    border-radius: .2rem;
+    overflow: hidden;
+}
+.popCont {
+    top: 0rem;
+}
+.tishi {
+    height: 1rem;
+    line-height:1rem;
+    padding-bottom: 1rem;
+    /* border-bottom: 1px solid #01182f; */
+    background: #001b33;
+    border-radius: 0.2rem;
+}
+.tishi .tishi_text{
+    text-align: center;
+    /*padding-right: 1.5rem;*/
+}
+/*.sure {*/
+/*width: 3rem;*/
+/*line-height: 1.2rem;*/
+/*!* background: #ff8400; *!*/
+/*border-radius: 0.3rem;*/
+/*float: right;*/
+/*margin: 0rem auto 0 auto;*/
+/*border: 0;*/
+/*position: absolute;*/
+/*right: 1rem;*/
+/*color: #fff;*/
+/*font-size: 0.5rem;*/
+/*}*/
+
+.tishi .point{
+    padding-left:1rem;
+    line-height:1rem;
+}
+.tishi_text>i.image{
+    position: absolute;
+    left: 0.3rem;
+    top:0.2rem;
+}
+.read_sure{
+    width: 8rem;
+    height:1rem;
+    line-height:1rem;
+    background: #ff8400;
+    margin: 0;
+    position: absolute;
+    top:12rem;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.parameterset.dao.IParameterSetDao">
+
+    <select id="queryList"
+            resultType="com.rmkj.microcap.modules.parameterset.entity.ParameterSetBean" useCache="true">
+        SELECT
+        parameter_set.id as id,
+        parameter_set.default_pay_type as defaultPayType,
+        parameter_set.hold_count as holdCount,
+        parameter_set.hold_money as holdMoney,
+        parameter_set.cash_money as cashMoney,
+        parameter_set.cash_money_ration as cashMoneyRation,
+        parameter_set.cash_money_count as cashMoneyCount,
+        parameter_set.qr_code_url as qrCodeUrl,
+        parameter_set.qr_code_menu_url as qrCodeMenuUrl,
+        parameter_set.orders_min_money AS ordersMinMoney,
+        parameter_set.hold_orders_count as holdOrdersCount,
+        parameter_set.product_name as productName,
+        parameter_set.wft_business_number as wftBusinessNumber,
+        parameter_set.wft_business_key as wftBusinessKey
+        FROM
+        tb_parameter_set parameter_set
+        where 1=1
+        <if test="id!=null">
+            and parameter_set.id=#{id}
+        </if>
+        <if test="holdCount!=null">
+            and parameter_set.hold_count=#{holdCount}
+        </if>
+        <if test="holdMoney!=null">
+            and parameter_set.hold_money=#{holdMoney}
+        </if>
+        <if test="cashMoney!=null">
+            and parameter_set.cash_money=#{cashMoney}
+        </if>
+        <if test="cashMoneyRation!=null">
+            and parameter_set.cash_money_ration=#{cashMoneyRation}
+        </if>
+        <if test="cashMoneyCount!=null">
+            and parameter_set.cash_money_count=#{cashMoneyCount}
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,17 @@
+.w-item input {
+    /* float: left; */
+    text-align: left;
+    height: 1.3rem;
+    width: 5.5rem;
+    line-height: 1.3rem;
+    border-radius: .2rem;
+    font-size: .45rem;
+    background: #000c1a;
+    color: #fff;
+}
+.wrap-page {
+    bottom: 0rem;
+}
+.login {
+    margin-bottom: 1rem;
+}

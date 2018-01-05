@@ -1,0 +1,21 @@
+.popCont_img {
+    z-index: 99;
+}
+.erweim_text {
+    bottom: 2rem;
+}
+.popCont_img {
+    top: 0.2rem;
+}
+.popBox, .prompt-box {
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* top: 100%; */
+    background: rgba(0,0,0,0.7);
+}

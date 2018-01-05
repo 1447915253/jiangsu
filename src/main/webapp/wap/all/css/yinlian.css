@@ -1,0 +1,33 @@
+.tianxie{
+    padding-left: 0;
+}
+.w-item input.copy {
+    width: 5rem;
+    height: 1.3rem;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: .2rem;
+    font-size: .35rem;
+    background: #000c1a;
+    color:#fff;
+}
+.w-item input.fill {
+    float: right;
+    width: 3rem;
+    height: 1.3rem;
+    text-align: center;
+    background: #12e11b;
+    border-radius: 8px;
+    border: 0;
+    font-size: 0.4rem;
+    color: #FFFFFF;
+    padding-left: 0.4rem;
+    padding-right: 0.5rem;
+    margin-left: 0.3rem;
+}
+.tianxie .fill{
+     padding-right: 0.5rem;
+ }
+.w-item .fill {
+    padding-left: 0.5rem;
+}

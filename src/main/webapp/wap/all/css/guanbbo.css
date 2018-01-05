@@ -1,0 +1,38 @@
+body{
+    background: #000c18;
+}
+.user_top{
+    margin: 0.15rem 0.3rem 0rem 0.3rem;
+    height:0.8rem;
+    line-height:0.8rem;
+    background:#3c3b3b;
+    /*border:1px solid #113e68;*/
+    border-radius:0.1rem;
+    text-align: center;
+    font-size:0.45rem;
+    color:#e9e4e8;
+    font-family: "微软雅黑";
+}
+.guangbo_contain{
+    margin: 0.3rem 0.3rem 0 0.3rem;
+    background: #3c3b3b;
+    padding: 0.3rem 0.3rem 1rem 0.3rem;
+    color:#e9e4e8;
+    font-size:0.35rem;
+    line-height:0.6rem;
+    border-radius:0.1rem;
+    font-family: "微软雅黑";
+}
+.guangbo_contain p{
+    letter-spacing: 0.03rem;
+}
+.wrap-page{
+    overflow: hidden;
+    top: 0.3rem;
+    bottom: 0.7rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-top: 0;
+    border: 0;
+}

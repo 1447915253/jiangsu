@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.trade.dao.Ml3MemberUnitsMoneyRecordDao">
+
+    <!-- 查询会员单位累计出金金额 -->
+    <select id="findUnitsMoneyRecord" resultType="com.rmkj.microcap.modules.trade.entity.Ml3MemberUnitsMoneyRecord" parameterType="java.lang.String">
+      SELECT
+            SUM(money + fee) AS sumMoney
+        FROM
+            tb_ml3_member_units_money_record
+        WHERE
+            units_id = #{unitsId}
+        AND (`status` = '1' OR `status` = '0')
+    </select>
+</mapper>

@@ -1,0 +1,104 @@
+.yaoqing {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.yaoqing img {
+    width: 100%;
+   /*height: 100%;*/
+}
+.invite_text{
+    margin-top: 16rem;
+    font-size: 0.4rem;
+    padding: 0 1.75rem;
+    text-align: center;
+    line-height: 0.7rem;
+}
+img {
+    max-width: 100%;
+    border: 0;
+}
+.button-ljfx {
+    width: 100%;
+    /* position: absolute; */
+    margin-top: 0.2rem;
+    /* top: 12.1rem; */
+    /* bottom: 2.5rem; */
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #554d43;
+}
+.button-ljfx p {
+    text-align: center;
+    padding: 0 0.5rem;
+    font-size: 0.4rem;
+
+    line-height: 0.65rem;
+}
+.button-ljfx p > span ,.button-ljfx p > b{
+    color: red;
+}
+.button-ljfx p > b{
+    font-size: 0.5rem;
+}
+.button-ljfx > a {
+    color: #000;
+    background: #ffc334;
+    display: block;
+    width: 65%;
+    margin: 0.5rem auto 0 auto;
+    text-align: center;
+    border-radius: 0.2rem;
+    line-height: 1.2rem;
+    font-size: 0.4rem;
+    font-weight: bold;
+}
+.ic {
+    padding-top: 1rem;
+}
+.rule{
+    padding: 0.35rem;
+    font-size:0.38rem;
+    line-height: 0.7rem;
+    /*margin-top: 0.5rem;*/
+    position: absolute;
+    margin-bottom: 0.3rem;
+}
+.y_name{
+    font-size: 0.45rem;
+    position: absolute;
+    top: 2.8rem;
+    /* left: 19%; */
+    margin-left: 3.3rem;
+    color: #face65;
+}
+.fix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.7;
+    z-index: 1;
+    display: none;
+}
+.box-re {
+    background: #292929;
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 6px;
+}
+.box-re > p {
+    text-align: left;
+    color: #d7bf8b;
+}
+.over {
+    display: block;
+}
+.jt > p {
+    color: #efd984;
+    line-height: 2em;
+}

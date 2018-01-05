@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rmkj.microcap.modules.index.dao.ParameterSetDao">
+    <resultMap id="BaseResultMap" type="com.rmkj.microcap.modules.index.entity.ParameterSet">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="hold_count" property="holdCount" jdbcType="INTEGER"/>
+        <result column="hold_money" property="holdMoney" jdbcType="DECIMAL"/>
+        <result column="cash_money" property="cashMoney" jdbcType="DECIMAL"/>
+        <result column="cash_money_ration" property="cashMoneyRation" jdbcType="DECIMAL"/>
+        <result column="cash_money_count" property="cashMoneyCount" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, hold_count, hold_money, cash_money, cash_money_ration, cash_money_count
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_parameter_set
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_parameter_set
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.rmkj.microcap.modules.index.entity.ParameterSet">
+    insert into tb_parameter_set (id, hold_count, hold_money, 
+      cash_money, cash_money_ration, cash_money_count
+      )
+    values (#{id,jdbcType=VARCHAR}, #{holdCount,jdbcType=INTEGER}, #{holdMoney,jdbcType=DECIMAL}, 
+      #{cashMoney,jdbcType=DECIMAL}, #{cashMoneyRation,jdbcType=DECIMAL}, #{cashMoneyCount,jdbcType=INTEGER}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.rmkj.microcap.modules.index.entity.ParameterSet">
+        insert into tb_parameter_set
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="holdCount != null">
+                hold_count,
+            </if>
+            <if test="holdMoney != null">
+                hold_money,
+            </if>
+            <if test="cashMoney != null">
+                cash_money,
+            </if>
+            <if test="cashMoneyRation != null">
+                cash_money_ration,
+            </if>
+            <if test="cashMoneyCount != null">
+                cash_money_count,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="holdCount != null">
+                #{holdCount,jdbcType=INTEGER},
+            </if>
+            <if test="holdMoney != null">
+                #{holdMoney,jdbcType=DECIMAL},
+            </if>
+            <if test="cashMoney != null">
+                #{cashMoney,jdbcType=DECIMAL},
+            </if>
+            <if test="cashMoneyRation != null">
+                #{cashMoneyRation,jdbcType=DECIMAL},
+            </if>
+            <if test="cashMoneyCount != null">
+                #{cashMoneyCount,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.rmkj.microcap.modules.index.entity.ParameterSet">
+        update tb_parameter_set
+        <set>
+            <if test="holdCount != null">
+                hold_count = #{holdCount,jdbcType=INTEGER},
+            </if>
+            <if test="holdMoney != null">
+                hold_money = #{holdMoney,jdbcType=DECIMAL},
+            </if>
+            <if test="cashMoney != null">
+                cash_money = #{cashMoney,jdbcType=DECIMAL},
+            </if>
+            <if test="cashMoneyRation != null">
+                cash_money_ration = #{cashMoneyRation,jdbcType=DECIMAL},
+            </if>
+            <if test="cashMoneyCount != null">
+                cash_money_count = #{cashMoneyCount,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rmkj.microcap.modules.index.entity.ParameterSet">
+    update tb_parameter_set
+    set hold_count = #{holdCount,jdbcType=INTEGER},
+      hold_money = #{holdMoney,jdbcType=DECIMAL},
+      cash_money = #{cashMoney,jdbcType=DECIMAL},
+      cash_money_ration = #{cashMoneyRation,jdbcType=DECIMAL},
+      cash_money_count = #{cashMoneyCount,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+    <sql id="Base_Column_Map">
+        id AS id,
+        default_pay_type as defaultPayType,
+        percent_qibing AS percentQibing,
+        percent_bubing AS percentBubing,
+        units_money_alarm as unitsMoneyAlarm,
+        units_money_not_enough as unitsMoneyNotEnough,
+        hold_count AS holdCount,
+        hold_money AS holdMoney,
+        cash_money AS cashMoney,
+        cash_money_ration AS cashMoneyRation,
+        cash_money_count AS cashMoneyCount,
+        qr_code_url AS qrCodeUrl,
+        qr_code_menu_url AS qrCodeMenuUrl,
+        orders_min_money AS ordersMinMoney,
+        hold_orders_count AS holdOrdersCount
+    </sql>
+
+    <!-- 查询参数表第一条数据 -->
+    <select id="findParameterSet" resultType="com.rmkj.microcap.modules.index.entity.ParameterSet">
+        SELECT
+        <include refid="Base_Column_Map"/>
+        FROM tb_parameter_set limit 1
+    </select>
+
+</mapper>

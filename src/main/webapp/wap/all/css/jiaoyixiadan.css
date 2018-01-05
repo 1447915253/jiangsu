@@ -1,0 +1,212 @@
+.tishi_text{
+    text-align: center;
+}
+.tishi{
+    border:0;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+.xiadan_top{
+    height:1.5rem;
+    color:#a5a5a8;
+    font-size:0.4rem;
+    text-align: center;
+    padding-top: 0.2rem;
+    line-height: 1.5rem;
+}
+.zhang_red{
+    /*padding-right: 1rem;*/
+    width: 0.55rem;
+    height: 0.5rem;
+    /* margin-bottom: 0.2rem; */
+    background: url(../../all/image/zhang.png) no-repeat center center;
+    background-size: 0.55rem 0.5rem;
+    margin-top: 0.1rem;
+}
+/*#showUpAndDown{*/
+/*padding-left: 1rem;*/
+/*}*/
+.xiajiang_green{
+    /*padding-right: 1rem;*/
+    width: 0.55rem;
+    height: 0.5rem;
+    /* margin-bottom: 0.2rem; */
+    background: url(../../all/image/xiajiang.png) no-repeat center center;
+    background-size: 0.55rem 0.5rem;
+    /* width: 50%; */
+    /* float: right; */
+    /* display: inline-block; */
+    margin-top: 0.1rem;
+}
+.xiajiang
+{
+    padding-left: 0.8rem;
+    color: #69C00A;
+    /* width: 50%; */
+    /* float: left; */
+}
+.shangzhang{
+    padding-left: 0.8rem;
+    color:#ff0000;
+
+}
+.xiadan_top_lf{
+    width: 50%;
+    line-height:0.6rem;
+}
+.xiadan_top_lf_line{
+    padding-left: 0.5rem;
+    display: inline-block;
+    float: right;
+    height: 1.5rem;
+    width: 0.53rem;
+}
+
+.pinz_yellow{
+    color:#a5a5a8;
+    text-align: center;
+}
+.pinz {
+    padding-left: 1rem;
+}
+.pinza{
+    width: 50%;
+    /*padding-right: 1rem;*/
+    line-height:0.6rem;
+}
+.xiadan_top_line{
+   border-bottom:2px dotted #141823;
+    background-size: 10rem 0.03rem;
+    height:0.03rem;
+    width:10rem;
+}
+.pop_bd_center{
+    width: 100%;
+    overflow: hidden;
+}
+.pop_bd_center:first-child{
+    margin-top: 0.4rem;
+}
+.pop_bd_text{
+    overflow: hidden;
+}
+.pinz_white>img{
+    padding-left: 0.2rem;
+    width:0.7rem;
+    height:0.5rem;
+    margin-bottom: 0.2rem;
+}
+.xiadan_top .red{
+    color:#f60101;
+    font-size:0.48rem;
+    overflow:hidden;
+}
+.xiadan_top .green{
+    color:#69C00A;
+    font-size:0.5rem;
+}
+.queding{
+     width: 3.3rem;
+     height: 1.1rem;
+     line-height: 1.1rem;
+     background: #d3af30;
+     text-align: center;
+     color: #000;
+     border: 0;
+     position: absolute;
+     top: 6rem;
+     font-size: 0.5rem;
+     border-radius: 0.2rem;
+     margin-left: 4.3rem;
+     margin-top: -0.5rem;
+     /*margin-top: 1.5rem;*/
+ }
+.quxiao{
+    width: 3.3rem;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    background: #1e1e1e;
+    text-align: center;
+    color: #959595;
+    border: 0;
+    position: absolute;
+    top: 6rem;
+    font-size: 0.5rem;
+    border-radius: 0.2rem;
+    margin-left: 0.3rem;
+    margin-top: -0.5rem;
+    /*margin-top: 1.5rem;*/
+}
+.popCont {
+    top: 2.5rem;
+}
+/*必胜开始*/
+.p_money{
+    overflow: auto;
+    padding-bottom: 4px;
+    border-bottom:1px solid #000c1a;
+}
+.buzaijiaoyi h2{
+    color: #FA2E42;
+    text-align: center;
+    font-size: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+.p_money>p{
+    text-align: center;
+    color:#969696;
+    font-size:0.4rem;
+    line-height:0.8rem;
+}
+ul.p_point{
+    width: 82%;
+    /*padding: 0.3rem 0rem 0.1rem 0.5rem;*/
+    margin: 0 auto;
+    font-size: 0.4rem;
+    /*padding-top: 12px;*/
+    overflow: auto;
+    border-bottom:1px solid #000c1a;
+}
+ul.p_point li{
+    width: 50%;
+    float: left;
+    color:#969696;
+    /*border: 1px dotted #51524D;*/
+    padding: 5px 0;
+}
+ul.p_point li:last-child{
+    text-align: right;
+    /*padding-right: 0.5rem;*/
+}
+ul.p_point li span{
+    font-size:0.5rem;
+    padding-left: 0.2rem;
+}
+ul.p_point li span.p_point_red{
+    color:#F0333D;
+}
+ul.p_point li span.p_point_green{
+    color:#48AB72;
+}
+ul.p_point li span.point_red{
+    color:#F0333D;
+}
+ul.p_point li span.point_green{
+    color:#48AB72;
+}
+ul.p_point li span.point_grey{
+    color:#bbb;
+}
+.make_sureb {
+    width: 7rem;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    background: #d3af30;
+    border-radius: 0.2rem;
+    float: right;
+    margin-right: 0.5rem;
+    border: 0;
+    color: #000;
+    font-size: 0.4rem;
+}

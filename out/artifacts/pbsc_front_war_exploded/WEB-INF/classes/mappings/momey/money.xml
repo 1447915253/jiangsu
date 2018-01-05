@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.money.dao.MoneyDao">
+
+    <insert id="recordChangeMoney" parameterType="com.rmkj.microcap.modules.money.entity.MoneyChange">
+        INSERT INTO tb_money_change
+        (
+        id,
+        user_id,
+        dif_money,
+        `type`,
+        before_money,
+        after_money,
+        create_time,
+        remark
+        )
+        VALUES
+        (
+        #{id},
+        #{userId},
+        #{difMoney},
+        #{type},
+        #{beforeMoney},
+        #{afterMoney},
+        #{createTime},
+        #{remark}
+        )
+    </insert>
+
+    <insert id="record" parameterType="com.rmkj.microcap.modules.money.entity.MoneyRecord">
+        INSERT INTO tb_money_record
+        (
+        id,
+        user_id,
+        serial_no,
+        money,
+        fee,
+        `type`,
+        third_serial_no,
+        channel,
+        status,
+        remark,
+        create_time,
+        complete_time,
+        chn_name,
+        bank_name,
+        open_bank_name,
+        bank_account,
+        bank_code,
+        id_card,
+        lian_hang_no,
+        failure_reason
+        )
+        VALUES
+        (
+        #{id},
+        #{userId},
+        #{serialNo},
+        #{money},
+        #{fee},
+        #{type},
+        #{thirdSerialNo},
+        #{channel},
+        #{status},
+        #{remark},
+        #{createTime},
+        null,
+        #{chnName},
+        #{bankName},
+        #{openBankName},
+        #{bankAccount},
+        #{bankCode},
+        #{idCard},
+        #{lianHangNo},
+        #{failureReason}
+        )
+    </insert>
+
+    <update id="updateRecord" parameterType="com.rmkj.microcap.modules.money.entity.MoneyRecord">
+        UPDATE tb_money_record SET `status` = #{status}, failure_reason = #{failureReason}, complete_time = #{completeTime},third_serial_no=#{thirdSerialNo}
+         WHERE serial_no = #{serialNo} AND `status` = 0
+    </update>
+
+    <!--更新98支付充值记录-->
+    <update id="updateNoThirdNoRecord" parameterType="com.rmkj.microcap.modules.money.entity.MoneyRecord">
+        UPDATE tb_money_record SET `status` = #{status}, failure_reason = #{failureReason}, complete_time = #{completeTime},third_serial_no = #{thirdSerialNo}
+        WHERE serial_no = #{serialNo} AND `status` = 0
+    </update>
+
+    <select id="findMoneyRecordBySerialNoWithLock" parameterType="string" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord">
+        SELECT
+            id,
+            user_id AS userId,
+            serial_no AS serialNo,
+            money,
+            fee,
+            `type`,
+            third_serial_no AS thirdSerialNo,
+            channel,
+            status,
+            remark,
+            create_time AS createTime,
+            complete_time AS completeTime,
+            chn_name AS chnName,
+            bank_name AS bankName,
+            bank_account AS bankAccount,
+            failure_reason AS failureReason
+        FROM tb_money_record WHERE serial_no = #{orderID} FOR UPDATE
+    </select>
+
+    <delete id="deletePrePayMoneyRecord" parameterType="java.util.Map">
+        DELETE FROM tb_money_record WHERE third_serial_no = #{thirdSerialNo} AND user_id = #{userId}
+    </delete>
+
+    <insert id="returnMoneyOut" parameterType="com.rmkj.microcap.modules.money.entity.ReturnMoneyOut">
+        INSERT INTO tb_return_money_out
+        (
+        id,
+        user_id,
+        serial_no,
+        money,
+        fee,
+        third_serial_no,
+        remark,
+        create_time,
+        complete_time,
+        chn_name,
+        bank_account,
+        bank_name,
+        open_bank_name,
+        province,
+        city,
+        failure_reason
+        )
+        VALUES
+        (
+        #{id},
+        #{userId},
+        #{serialNo},
+        #{money},
+        #{fee},
+        #{thirdSerialNo},
+        #{remark},
+        #{createTime},
+        null,
+        #{chnName},
+        #{bankAccount},
+        #{bankName},
+        #{openBankName},
+        #{province},
+        #{city},
+        #{failureReason}
+        )
+    </insert>
+
+    <!-- 查询用户交易提现记录 -->
+    <select id="findUserMoneyRecord" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord" parameterType="string">
+        SELECT
+            id,
+            user_id AS userId,
+            serial_no AS serialNo,
+            money,
+            fee,
+            `type`,
+            third_serial_no AS thirdSerialNo,
+            channel,
+            status,
+            remark,
+            create_time AS createTime,
+            complete_time AS completeTime,
+            chn_name AS chnName,
+            bank_name AS bankName,
+            bank_account AS bankAccount,
+            failure_reason AS failureReason
+        FROM
+            tb_money_record
+        WHERE
+            type = 1 AND user_id = #{userId} AND DAY (create_time) = DAY (now())
+    </select>
+    <!-- 查询用户当天收益余额提现 -->
+    <select id="findUserOutMoneyRecord" resultType="com.rmkj.microcap.modules.money.entity.ReturnMoneyOut" parameterType="string">
+        <![CDATA[
+          select
+            IFNULL(SUM(money), 0)  AS money,
+            count(*) AS count
+          FROM tb_return_money_out WHERE user_id = #{userId} AND status != 2 AND review_status != 2 AND DAY(create_time) = DAY(now())
+        ]]>
+    </select>
+    <!--首信易支付，定时查询充值记录-->
+    <select id="selChargeResult" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord" parameterType="string">
+        SELECT
+        id,
+        user_id AS userId,
+        serial_no AS serialNo,
+        money,
+        fee,
+        `type`,
+        third_serial_no AS thirdSerialNo,
+        channel,
+        status,
+        remark,
+        create_time AS createTime,
+        complete_time AS completeTime,
+        chn_name AS chnName,
+        bank_name AS bankName,
+        bank_account AS bankAccount,
+        failure_reason AS failureReason
+        FROM
+        tb_money_record
+        WHERE
+        type = 0 AND create_time &lt; (now() - interval 2 MINUTE) AND status = 0;
+    </select>
+
+    <!-- 查询用户充值记录 -->
+    <select id="findUserPayMoneyRecord" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord" parameterType="string">
+         SELECT
+            id,
+            user_id AS userId,
+            serial_no AS serialNo,
+            money,
+            fee,
+            `type`,
+            third_serial_no AS thirdSerialNo,
+            channel,
+            status,
+            remark,
+            create_time AS createTime,
+            complete_time AS completeTime,
+            chn_name AS chnName,
+            bank_name AS bankName,
+            bank_account AS bankAccount,
+            failure_reason AS failureReason
+            FROM
+            tb_money_record
+        WHERE
+          user_id = #{userId}
+            <if test="type != null">
+                AND type = #{type}
+            </if>
+            <if test="withDrawTime != null">
+                AND DATE_FORMAT(create_time,'%Y-%m-%d') = #{withDrawTime}
+            </if>
+    </select>
+    <!-- 查询用户充值记录 -->
+    <select id="findUserWithdraw" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord" parameterType="string">
+        SELECT
+        id,
+        user_id AS userId,
+        serial_no AS serialNo,
+        money,
+        fee,
+        `type`,
+        third_serial_no AS thirdSerialNo,
+        channel,
+        status,
+        remark,
+        create_time AS createTime,
+        complete_time AS completeTime,
+        chn_name AS chnName,
+        bank_name AS bankName,
+        bank_account AS bankAccount,
+        failure_reason AS failureReason
+        FROM
+        tb_money_record
+        WHERE
+        user_id = #{userId}
+         and `type`=1 and `status`=1
+        order by create_time desc
+        limit 0,1
+    </select>
+
+    <select id="findMoneyRecordStatusByUserId" resultType="java.lang.Integer" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        select count(*) from tb_money_record WHERE type = '0' AND `status` = '0' AND TO_DAYS(create_time) = TO_DAYS(NOW()) AND user_id = #{id}
+    </select>
+
+    <!-- 根据银行卡号查询第一条提现记录 -->
+    <select id="findMoneyRecordByBankAccount" parameterType="com.rmkj.microcap.modules.user.bean.AddBankCard" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord">
+        select
+            id,
+            user_id AS userId,
+            serial_no AS serialNo,
+            money,
+            fee,
+            `type`,
+            third_serial_no AS thirdSerialNo,
+            channel,
+            status,
+            remark,
+            create_time AS createTime,
+            complete_time AS completeTime,
+            chn_name AS chnName,
+            bank_name AS bankName,
+            bank_account AS bankAccount,
+            failure_reason AS failureReason
+        from
+        tb_money_record WHERE bank_account = #{bankAccount} ORDER BY create_time ASC LIMIT 0,1;
+    </select>
+
+    <!--保存用户的银行卡信息-->
+    <insert id="personageBankCard" parameterType="com.rmkj.microcap.common.modules.pay.mobao.bean.MoBaoPerBankCardBean" >
+        INSERT INTO tb_user_mobao_bank
+        (
+        id,
+        user_id,
+        mobile,
+        cardByName,
+        cardByNo,
+        cerNumber
+        )
+        VALUES
+        (
+        #{id},
+        #{userId},
+        #{mobile},
+        #{cardByName},
+        #{cardByNo},
+        #{cerNumber}
+        )
+    </insert>
+    <!--查询用户的个人信息-->
+    <select id="moBaoPayQueryBack"  resultType="com.rmkj.microcap.common.modules.pay.mobao.bean.MoBaoPerBankCardBean" parameterType="string">
+        select id,
+        user_id,
+        mobile,
+        cardByName,
+        cardByNo,
+        cerNumber from 	tb_user_mobao_bank where user_id= #{userId}
+    </select>
+
+    <!--修改用户的个人银行充值信息-->
+    <update id="personageBankCardUpdate" parameterType="com.rmkj.microcap.common.modules.pay.mobao.bean.MoBaoPerBankCardBean">
+        UPDATE
+        tb_user_mobao_bank
+        SET
+        mobile=#{mobile},
+        cardByName=#{cardByName},
+        cardByNo=#{cardByNo},
+        cerNumber=#{cerNumber}
+        WHERE user_id= #{userId}
+    </update>
+</mapper>

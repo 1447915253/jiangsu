@@ -1,0 +1,224 @@
+body,h1,h2,h3,h4,h5,h6,div,p,dl,dt,dd,ol,ul,li,form,table,th,td,a,img,span,strong,var,em,input,textarea,select,option{margin: 0; padding: 0;}
+html,body{font-family:"微软雅黑","宋体",Arail,Tabhoma;text-align: left;}
+ul,ol{list-style: none;}
+img{border: 0 none;}
+input,select,textarea{outline:0;}
+textarea{resize:none; overflow: auto;}
+table{border-collapse: collapse; border-spacing: 0;}
+th,strong,var,em{font-weight: normal; font-style: normal;}
+a{text-decoration: none;}
+body{
+	font-size: 62.5%;
+	width: 100%;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('../tubiao/iconfont.css'); /* IE9*/
+  src: url('../tubiao/iconfont.eot'), /* IE6-IE8 */
+  url('../tubiao/iconfont.svg'), /* chrome、firefox */
+  url('../tubiao/iconfont.ttf'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('../tubiao/iconfont.woff'); /* iOS 4.1- */
+}
+
+.iconfont{
+	font-family:"iconfont";
+	font-size:16px;
+	font-style:normal;
+}
+
+/*===个人中心===*/
+.personal_center_da{
+	width: 100%;
+	position: relative;
+}
+.personal_center_da_d_p{
+	position: absolute;
+	top: 10%;
+    left: 38%;
+    width: 24%;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+}
+.personal_center_da_d_p img{
+	width: 77px;
+	height: 77px;
+}
+.personal_center_da_d_ul{
+	overflow: hidden;
+	width: 100%;
+	padding: 1rem 0 1rem 0.5rem;
+	background-color: #001A31;
+	border-bottom:1px solid #0A467B;
+}
+.personal_center_da_d_ul li{
+	height: 5rem;
+	float: left;
+	width: 56%;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	border-right: 1px solid #76695a;
+}
+.personal_center_db_p{
+	overflow: hidden;
+	line-height: 45px;
+	border-bottom: 1px solid #b0b0b0;
+	padding: 0 10px;
+}
+.personal_center_db_p span{
+	font-size: 14px;
+	color: #606060;
+}
+#personal_center_db_p_i{
+	float: right;
+	font-size: 18px;
+	color: #b6b6b6;
+}
+#personal_center_db_p_ia{
+	font-size: 25px;
+	color: #50c9f1;
+}
+#personal_center_db_p_ib{
+	color: #35b87f;
+	font-size: 25px;
+}
+#personal_center_db_p_iac{
+	color: #5b99ee;
+	font-size: 25px;
+}
+#personal_center_db_p_iad{
+	color: #ffa200;
+	font-size: 25px;
+	    vertical-align: middle;
+}
+#personal_center_db_p_iae{
+	color: #ffa200;
+	font-size: 25px;
+	vertical-align: middle;
+}
+#personal_center_db_p_if{
+	color: #c5d086;
+	font-size: 25px;
+	vertical-align: middle;
+}
+/*====个人中心-充值=====*/
+.personal_recharge_ul{
+	overflow: hidden;
+	padding: 0 2%;
+	line-height: 30px;
+}
+.personal_recharge_ul li{
+	float: left;
+	font-size: 12px;
+	color: #868686;
+	margin-left: 7px;
+	margin-right: -11px;
+}
+.personal_recharge_ul_li{
+	width: 37%;
+}
+.personal_recharge_ul_lia{
+	width: 18%;
+	text-align: center;
+}
+.personal_recharge_ul_lib{
+	width: 27%;
+	text-align: center;
+	line-height: 30px !important;
+}
+.personal_recharge_ula{
+	overflow: hidden;
+	padding: 0 2%;
+	line-height: 30px;
+}
+.personal_recharge_ula ul{
+	border-bottom: 1px solid #b0b0b0;
+}
+.personal_recharge_ula li{
+	float: left;
+	font-size: 12px;
+	color: #868686;
+	line-height: 60px;
+}
+#personal_recharge_ul_lic{
+	width: 18%;
+	color: #e64545;
+	text-align: center;
+	line-height: 60px;
+}
+.personal_recharge_p{
+	width: 90%;
+	margin: 16px auto;
+	font-size: 9px;
+	overflow: hidden;
+}
+.personal_recharge_p span{
+	width: 42%;
+	line-height: 18px;
+	color: #7d7d7d;
+	float: left;
+	text-align: center;
+}
+.personal_recharge_p a{
+	background: #016fad;
+	color: #fff;
+	float: left;
+	width: 14%;
+	line-height: 18px;
+	text-align: center;
+	margin-left: 2%;
+}
+/*====充值记录====*/
+.personal_Prepaid_ul{
+	overflow: hidden;
+	border-bottom: 1px solid #b0b0b0;
+	font-size: 12px;
+	color: #878787;
+}
+.personal_recharge .pagelist div{
+	width: 178px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.personal_Prepaid_ul li{
+	float: left;
+}
+.personal_Prepaid_ul_li{
+	width: 12%;
+    height: 26px;
+    text-align: center;
+    margin-top: 5%;
+}
+.personal_Prepaid_ul_li img{
+	width: 27px;
+	height: 27px;
+}
+.personal_Prepaid_ul_li span{
+	width: 22px;
+    height: 22px;
+    border: 1px solid #397ab2;
+    border-radius: 50%;
+    font-size: 16px;
+    background: #397ab2;
+    color: #fff;
+    margin-left: 1px;
+    margin-top: 1px;
+    display: inline-block;
+}
+.personal_Prepaid_ul_lia,.personal_Prepaid_ul_lic{
+	width: 64%;
+	margin: 2% 0;
+}
+.personal_Prepaid_ul_lib,.personal_Prepaid_ul_lid{
+	width: 24%;
+	text-align: center;
+	line-height: 28px;
+}
+.personal_Prepaid_ul .personal_Prepaid_ul_lib{
+	color: #397ab2;
+}
+.personal_Prepaid_ul .personal_Prepaid_ul_lic span{
+	color: #e54645;
+	font-size: 14px;
+}

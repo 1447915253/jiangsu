@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.weChatPublic.dao.WeChatPublicArticlesDao">
+    <select id="list" parameterType="com.rmkj.microcap.modules.weChatPublic.entity.WeChatPublicArticle"
+            resultType="com.rmkj.microcap.modules.weChatPublic.entity.WeChatPublicArticle">
+      SELECT
+        id,
+        picurl,
+        url,
+        title,
+        description,
+        create_time AS createTime
+       FROM tb_wechat_articles where 1 = 1
+    </select>
+
+    <select id="findById" parameterType="string" resultType="com.rmkj.microcap.modules.weChatPublic.entity.WeChatPublicArticle">
+        SELECT
+        id,
+        picurl,
+        url,
+        title,
+        content,
+        description,
+        create_time AS createTime
+       FROM tb_wechat_articles where id = #{id}
+    </select>
+
+    <select id="findById2" parameterType="string" resultType="com.rmkj.microcap.modules.weChatPublic.entity.WeChatPublicArticle2">
+        SELECT
+            picurl,
+            url,
+            title,
+            description
+        FROM tb_wechat_articles where id = #{id}
+    </select>
+
+    <insert id="add" parameterType="com.rmkj.microcap.modules.weChatPublic.entity.WeChatPublicArticle">
+        INSERT INTO tb_wechat_articles
+         (id, picurl, url, title, content, description, create_time)
+         VALUES
+         (#{id}, #{picurl}, #{url}, #{title}, #{content}, #{description}, now())
+    </insert>
+
+    <update id="update" parameterType="com.rmkj.microcap.modules.weChatPublic.entity.WeChatPublicArticle">
+        UPDATE tb_wechat_articles SET picurl=#{picurl}, url=#{url}, title=#{title}, description=#{description}, content = #{content}
+          WHERE id = #{id}
+    </update>
+
+    <delete id="del" parameterType="string">
+        DELETE FROM tb_wechat_articles WHERE id = #{id}
+    </delete>
+
+    <select id="getContentById" parameterType="string" resultType="com.rmkj.microcap.modules.weChatPublic.entity.WeiXinEventClickBean">
+        SELECT id,content,app_id as appId,text_type as textType,create_time as createTime FROM tb_weixin_event_click WHERE id = #{id}
+    </select>
+</mapper>

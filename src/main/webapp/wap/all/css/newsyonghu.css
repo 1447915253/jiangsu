@@ -1,0 +1,54 @@
+.popCont_img{
+    position: absolute;
+    width: 9rem;
+    height: 15rem;
+    background: url(../../all/image/545454_03.png) no-repeat center center;
+    background-size: 9rem 15rem;
+    left: 0.9rem;
+    top: 2rem;
+}
+.popCont_img_num{
+    position: absolute;
+    left: 2.8rem;
+    top: 8.3rem;
+    color: #fff;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.popCont_img_num span{
+    color:#cd0202;
+    font-weight:bold;
+    font-size: 1.2rem;
+    padding-right: 0.3rem;
+}
+.erweim_img{
+    position: absolute;
+    background-size: 3rem 3rem;
+    left:3rem;
+}
+.erweim_img button{
+    position: absolute;
+    border-radius: 0.2rem;
+    background: #023f76;
+    border: 0;
+    top: 11.5rem;
+    left: 0rem;
+    width: 3.5rem;
+    height: 1.1rem;
+    color: #bababa;
+    font-size:0.5rem;
+}
+.erweim_text p{
+    text-align: center;
+}
+.erweim_text p span{
+    color:#fbfe04;
+}
+.erweim_text{
+    position: absolute;
+    bottom:0.5rem;
+    left:1rem;
+    color:#fff;
+    font-size:0.4rem;
+
+}

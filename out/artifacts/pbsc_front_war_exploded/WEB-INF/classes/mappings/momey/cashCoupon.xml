@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.money.dao.CashCouponDao">
+
+    <insert id="giveCashCoupon" parameterType="com.rmkj.microcap.modules.money.entity.CashCoupon">
+        INSERT INTO tb_user_cash_coupon
+        (
+        id,
+        money,
+        user_id,
+        create_time,
+        end_date,
+        min_money,
+        `status`,
+        remark
+        )
+        VALUES
+        (
+        #{id},
+        #{money},
+        #{userId},
+        #{createTime},
+        #{endDate},
+        #{minMoney},
+        #{status},
+        #{remark}
+        )
+    </insert>
+
+    <select id="findCashCouponById" parameterType="string" resultType="com.rmkj.microcap.modules.money.entity.CashCoupon">
+      SELECT
+        id,
+        money,
+        user_id AS userId,
+        create_time AS createTime,
+        end_date AS endDate,
+        min_money AS minMoney,
+        status,
+        remark
+      FROM tb_user_cash_coupon
+      WHERE id = #{val}
+    </select>
+
+    <select id="findCashCouponByUserId" parameterType="string" resultType="com.rmkj.microcap.modules.money.entity.CashCoupon">
+        SELECT
+        id,
+        money AS money,
+        user_id AS userId,
+        create_time AS createTime,
+        end_date AS endDate,
+        min_money AS minMoney,
+        status,
+        remark,
+		COUNT(*) AS cashCouponCounts
+        FROM tb_user_cash_coupon
+        WHERE user_id = #{userId}
+		group by money,DATE_FORMAT(create_time,'%y-%m-%d'),end_date,min_money,`status`
+		ORDER BY create_time DESC
+    </select>
+
+    <update id="useCashCoupon" parameterType="com.rmkj.microcap.modules.money.entity.CashCoupon">
+        UPDATE tb_user_cash_coupon SET `status` = 1, remark = #{remark} WHERE id = #{id} AND `status` = 0
+    </update>
+
+    <select id="findUserCashCouponCanUse" parameterType="string" resultType="com.rmkj.microcap.modules.money.entity.CashCoupon">
+        SELECT
+        id,
+        money,
+        user_id AS userId,
+        create_time AS createTime,
+        end_date AS endDate,
+        min_money AS minMoney,
+        status,
+        remark
+      FROM tb_user_cash_coupon
+      WHERE user_id = #{val} AND `status` = 0
+    </select>
+
+</mapper>

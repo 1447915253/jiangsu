@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.coupon.dao.CouponDao">
+    <insert id="add" parameterType="com.rmkj.microcap.modules.coupon.entity.Coupon">
+        INSERT tb_user_cash_coupon
+         (id, money, user_id, `type`, create_time, end_date, remark)
+          VALUES
+         (#{id}, #{money}, #{userId}, #{type}, #{createTime}, #{endDate}, #{remark})
+    </insert>
+
+    <update id="toExpired" parameterType="java.util.Date">
+        UPDATE tb_user_cash_coupon
+         SET `status` = 2
+          WHERE `status` = 0 AND end_date &lt; #{val}
+    </update>
+
+    <select id="checkEnough" resultType="long" parameterType="com.rmkj.microcap.modules.coupon.entity.Coupon">
+        SELECT count(*) FROM tb_user_cash_coupon
+         WHERE user_id = #{userId} AND `status` = 0 AND `type` = #{type} AND `money` = #{money}
+          GROUP BY user_id
+    </select>
+
+    <select id="findCoupon" parameterType="com.rmkj.microcap.modules.coupon.entity.Coupon" resultType="com.rmkj.microcap.modules.coupon.entity.Coupon">
+        SELECT
+         id,
+         money,
+         user_id AS userId,
+         `type`,
+         create_time AS createTime,
+         end_date AS endDate,
+         min_money AS minMoney,
+         `status`,
+         remark
+         FROM tb_user_cash_coupon
+         WHERE user_id = #{userId} AND `status` = 0 AND `type` = #{type} AND `money` = #{money} ORDER BY endDate limit 0,#{num}
+    </select>
+
+    <update id="use" parameterType="java.util.Map">
+        UPDATE tb_user_cash_coupon SET `status` = 1, remark = #{remark}, use_time = now()
+         WHERE id in
+         <foreach collection="list" item="it" open="(" close=")" separator="," >
+             #{it.id}
+         </foreach>
+    </update>
+
+    <update id="restore" parameterType="com.rmkj.microcap.modules.coupon.entity.Coupon">
+        UPDATE tb_user_cash_coupon SET `status` = 0, use_time = null, remark = null
+        WHERE `status` = 1 AND `type` = #{type} AND date(end_date) &gt;= date(now())
+        <if test="tradeIds != null and tradeIds.size() != 0">
+            AND remark in
+            <foreach collection="tradeIds" item="it" separator="," open="(" close=")">
+                #{it}
+            </foreach>
+        </if>
+        <if test="tradeIds == null and tradeIds.size() == 0">
+            AND 1 != 1
+        </if>
+    </update>
+
+    <select id="findCouponsGroupType" parameterType="java.lang.String" resultType="com.rmkj.microcap.modules.coupon.entity.Coupon">
+        SELECT
+          `type`,
+          money,
+          count(*) AS num
+        FROM tb_user_cash_coupon WHERE `status` = 0 AND user_id = #{userId} GROUP BY `type`,money
+    </select>
+
+    <select id="findCoupons" parameterType="com.rmkj.microcap.modules.coupon.entity.Coupon" resultType="com.rmkj.microcap.modules.coupon.entity.Coupon">
+        SELECT
+          money,
+          end_date AS endDate,
+          date(create_time) AS createTime,
+          `status`,
+          `type`,
+          count(*) AS num
+        FROM tb_user_cash_coupon WHERE user_id = #{userId} GROUP BY status, date(create_time), end_date, `type`, money
+    </select>
+
+    <select id="todayUsedType1" parameterType="java.lang.String" resultType="com.rmkj.microcap.modules.coupon.entity.Coupon">
+        SELECT
+          id,
+          use_time as useTime
+        FROM tb_user_cash_coupon WHERE `status` = 1 AND user_id = #{userId} AND `type` = 2 AND date(use_time) = date(now()) ORDER BY useTime DESC
+    </select>
+
+</mapper>

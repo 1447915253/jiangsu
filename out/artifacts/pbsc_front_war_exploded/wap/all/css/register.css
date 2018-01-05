@@ -1,0 +1,108 @@
+.wrap-page {
+    top: 0rem;
+    bottom: 0rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-top: 0;
+    border: 0;
+    background-color: #222222;
+}
+.user_top {
+    /* width: 10.1rem; */
+    width: 96%;
+    height: 17rem;
+    /* margin-top: 0.3rem; */
+    position: absolute;
+    overflow: hidden;
+    padding: 0rem 0.4rem 0.2rem 0.4rem;
+    background: #1e1e1e;
+    background-size: 10rem 17rem;
+    /* margin: 0 auto; */
+    margin-left: 0.2rem;
+    border-radius: 0.2rem;
+    line-height: 0.9rem;
+    border: 2px solid #000;
+}
+.login_b {
+    position: absolute;
+    /* top: 6rem; */
+    top: 5rem;
+    left: 0.25rem;
+}
+.w-item {
+    /* width: 9.5rem; */
+    width: 9.5rem;
+    height: 1.2rem;
+    position: relative;
+     float: left;
+    line-height: 1.2rem;
+    font-size: 0.45rem;
+    background: #323232;
+    color: #ccc7c7;
+    border-radius: 0.1rem;
+    padding-left: 0.3rem;
+/*    margin-bottom: 0.4rem;*/
+    border: 0.03rem solid #000;
+    display: block;
+    margin: .5rem auto 0 auto;
+}
+
+i.login_line {
+    background: url(../../all/image/login_line.png) no-repeat center center;
+    width: 0.03rem;
+    height: 0.6rem;
+    background-size: 0.03rem 0.6rem;
+    position: absolute;
+    top: 0.3rem;
+    left: 2rem;
+}
+.w-item input {
+    /* font-size: 0.4rem; */
+    margin-top: -0.1rem;
+}
+.w-item input {
+    /* float: left; */
+    text-align: left;
+    height: 1.3rem;
+    width: 6rem;
+    line-height: 1.3rem;
+    border-radius: .2rem;
+    font-size: .4rem;
+    background: transparent;
+    color: #ccc7c7;
+    padding-left: 0.6rem;
+}
+.tianxie, .huoqu {
+    background: transparent;
+    padding-left: 0rem;
+}
+.huoqu .yanduanx {
+    width: 7rem;
+}
+.w-item input.green {
+    width: 2.2rem;
+    text-align: left;
+    padding-left: 0.1rem;
+    background: #fcd985;
+    margin-top: 0.01rem;
+    color: #000;
+}
+.huoqu .yanduanx input {
+    width: 3.2rem;
+    font-size: 0.3rem;
+}
+.button {
+    /* width: 9.5rem; */
+    width: 9.5rem;
+    height: 1rem;
+    margin-top: .5rem;
+    line-height: 1rem;
+    background: #dd514c;
+    border: 0;
+    font-size: 0.5rem;
+    color: #fff;
+    border-radius: 0.26rem;
+    position: relative;
+    left: 0rem;
+}

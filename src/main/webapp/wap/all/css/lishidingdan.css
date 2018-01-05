@@ -1,0 +1,177 @@
+.user_top {
+    margin-top: 0.4rem;
+     margin-bottom: 0.2rem;
+    overflow: hidden;
+    padding: 0 0.3rem 0.2rem 0.3rem;
+    /*margin-left: 0.5rem;
+    margin-right: 0.5rem;*/
+    border-radius: 0.2rem;
+    line-height: 0.6rem;
+}
+.user_top_name{
+    float: left;
+    font-size:0.4rem;
+}
+.user_top_name select{
+    width: 3.4rem;
+    font-size: 0.4rem;
+    text-align: center;
+    background: #3c3b3b;
+    color: #bbbbbb;
+    border: 1px solid #000;
+    height: 0.9rem;
+    border-radius: 8px;
+}
+.user_top_time{
+    overflow: auto;
+}
+.user_top .icon{
+    /*line-height: 0.8rem;*/
+    background: #3c3b3b;
+    border-radius: 0.2rem;
+    text-align: center;
+    font-size: 0.4rem;
+    margin-left: 0.1rem;
+    /*margin-right: 0.3rem;*/
+    color: #d8d1d1;
+    height: 0.9rem;
+    line-height: 0.9rem;
+}
+.his_date{
+    width: 1.3rem;
+    height: 0.6rem;
+    line-height:0.6rem;
+}
+.his_time{
+    width: 3rem;
+    height: 0.6rem;
+    margin-left: 0.1rem;
+}
+.his_chaxun{
+    width: 1.5rem;
+    height: 0.6rem;
+}
+.pinzhong{
+    line-height:1rem;
+    width: 10rem;
+    background: #3c3b3b;
+    /*margin-top: 0.3rem;*/
+    margin-bottom: 0.2rem;
+    margin-left: 0.5rem;
+}
+.tong{
+    line-height:1rem;
+    width: 10rem;
+    background: #151515;
+
+    margin-left: 0.5rem;
+}
+.tong_three{
+    margin-top: 0.05rem;
+}
+ul.dis {
+    overflow: hidden;
+    display: block;
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 1px solid #000a16;
+}
+ul.dis li img{
+    width: 0.35rem;
+    height: 0.2rem;
+}
+ul.dis li.red{
+    color:#fc0f01;
+}
+ul.dis li.green{
+    color:#2fd902;
+}
+ul.dis li.grey{
+    color:#999;
+}
+.tong{
+    overflow: hidden;
+    line-height:0.8rem;
+    background: #5e5e5e;
+}
+.pinzhong .dis li,.tong .dis li{
+    position: relative;
+    float: left;
+    width: 20%;
+    /*padding-top: 0.1rem;*/
+    text-align: center;
+    font-size:0.4rem;
+    font-family: "Book Antiqua";
+    text-transform: uppercase;
+    color:#aeaeae;
+}
+.tong .dis li:nth-child(3){
+    font-size:0.32rem;
+}
+.tong .dis li:nth-child(4),.tong .dis li:last-child{
+    font-size:0.35rem;
+}
+.pinzhong .dis li i,.tong .dis li i{
+    background: url(../../all/image/login_line.png) no-repeat center center;
+    width: 0.03rem;
+    height: 0.5rem;
+    background-size: 0.03rem 0.5rem;
+    position: absolute;
+    top: 0.3rem;
+    left: 2rem;
+}
+.tong .dis li i{
+    width: 0.03rem;
+    height: 0.5rem;
+    background-size: 0.03rem 0.5rem;
+    top: 0.3rem;
+}
+.dis_list{
+    background: #3c3b3b;
+    overflow: hidden;
+}
+/*.dis_time{*/
+/*font-size:0.25rem;*/
+/*}*/
+.dis_list_bianhao{
+    padding-left: 0.5rem;
+    letter-spacing: 0.03rem;
+    font-size:0.28rem;
+    height:0.5rem;
+    line-height:0.5rem;
+    color:#aeaeae;
+}
+.bianhao_img{
+    display: block;
+    width: 10rem;
+    height:0.03rem;
+}
+ul.kaicang_list li:first-child{
+    padding-left: 0.5rem;
+}
+ul.kaicang_list li{
+    width: 50%;
+    float:left;
+    text-align: center;
+    position: relative;
+    font-size:0.28rem;
+    color:#aeaeae;
+}
+ul.kaicang_list li i{
+    background: url(../../all/image/pinglist.png) no-repeat center center;
+    width: 0.03rem;
+    height: 0.6rem;
+    background-size: 0.03rem 0.6rem;
+    position: absolute;
+    top: 0.15rem;
+    left: 5rem;
+}
+.kaicang_img{
+    display: block;
+    width: 9.6rem;
+    margin-left: 0.3rem;
+}
+li.kctime{
+    line-height:0.5rem;
+    padding-top:0.1rem;
+}

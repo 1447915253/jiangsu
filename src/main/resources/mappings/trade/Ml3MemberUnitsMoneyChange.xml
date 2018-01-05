@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.trade.dao.Ml3MemberUnitsMoneyChangeDao">
+    <insert id="insert" parameterType="com.rmkj.microcap.modules.trade.entity.Ml3MemberUnitsMoneyChange">
+      INSERT INTO tb_ml3_member_units_money_change
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            id,
+            units_id,
+            units_name,
+            type,
+            dif_money,
+            before_money,
+            after_money,
+            create_time,
+            end_time,
+            <if test="remark != null">
+                remark
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            #{id},
+            #{unitsId},
+            #{unitsName},
+            #{type},
+            #{difMoney},
+            #{beforeMoney},
+            #{afterMoney},
+            #{createTime},
+            #{endTime},
+            <if test="remark != null">
+                #{remark}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 分组查询会员单位保证金最后一次浮动 -->
+    <select id="findEndTimeMaxGroupByUnitsId" resultType="com.rmkj.microcap.modules.trade.entity.Ml3MemberUnitsMoneyChange">
+      select
+          id AS id,
+          units_id AS unitsId,
+          end_time AS endTime,
+          create_time AS createTime
+        FROM tb_ml3_member_units_money_change
+        WHERE
+          end_time in (select MAX(end_time) FROM tb_ml3_member_units_money_change) AND type = 1 GROUP BY units_id;
+    </select>
+
+    <!-- 根据会员单位id查询最后一次浮动记录 -->
+    <select id="findUnitsMoneyRecordByunitsId" parameterType="java.lang.String" resultType="com.rmkj.microcap.modules.trade.entity.Ml3MemberUnitsMoneyChange">
+      select
+          id AS id,
+          units_id AS unitsId,
+          units_name AS unitsName,
+          end_time AS endTime,
+          create_time AS createTime
+        FROM tb_ml3_member_units_money_change
+        WHERE units_id = #{unitsId} AND end_time in (select MAX(end_time) FROM tb_ml3_member_units_money_change) AND type = 1
+    </select>
+</mapper>

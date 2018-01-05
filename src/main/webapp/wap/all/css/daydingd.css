@@ -1,0 +1,208 @@
+
+.user_top{
+    margin-top:0.3rem;
+    margin-bottom: 0.2rem;
+    overflow: hidden;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+}
+a.buy_chic ,a.buy_dd{
+    width: 4.3rem;
+    height:1.2rem;
+    background: #002b54;
+    border-radius:0.2rem;
+    position: relative;
+    padding-left: 1.8rem;
+    color: #fff;
+    font-size: .5rem;
+    text-align: left;
+    line-height: 1.27rem;
+}
+.user_top a i{
+    width: 0.8rem;
+    height:0.8rem;
+    left:0.8rem;
+    top:0.2rem;
+    position: absolute;
+}
+a.buy_dd{
+    background: #ff0000;
+}
+/*.buy_chic i{*/
+    /*background: url("../../all/image/fangd.png") no-repeat center center;*/
+    /*background-size: 0.8rem 0.8rem;*/
+/*}*/
+/*a.buy_dd i {*/
+    /*background: url("../../all/image/5545_05.png") no-repeat;*/
+    /*background-size: 0.8rem 0.8rem;*/
+/*}*/
+.account{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    background: #002b54;
+    margin: 0 0.4rem 0rem 0.4rem;
+    font-size: 0.33rem;
+    padding: 0rem 0.2rem 0.3rem 0.5rem;
+    position: relative;
+}
+.account_dnum{
+    left: 0.3rem;
+}
+.account_ye{
+    position: absolute;
+    right: 0.3rem;
+}
+.account span{
+    white-space: nowrap;
+    overflow: auto;
+}
+.bianhao_top{
+    overflow: hidden;
+    padding: 0.1rem 0.2rem;
+}
+.bianhao{
+    background: #002b54;
+    overflow: hidden;
+    border-radius: 0.2rem;
+    margin: 0.1rem 0.4rem 0.1rem 0.4rem;
+    position: relative;
+    color: #5cafff;
+    font-size: 0.1rem;
+}
+.bianhao .bianhao_num{
+    width: 42%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+    font-size: 0.28rem;
+}
+.bianhao .bianhao_time{
+    width: 58%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-align: right;
+    font-size: 0.3rem;
+}
+.bianhao_line{
+    background: url(../../all/image/chicang.png) repeat-x center center;
+    width: 100%;
+    height: 0.1rem;
+}
+.bianhao_bot{
+    margin: 0.2rem 0rem 0.1rem 0rem;
+    text-align: center;
+    overflow: hidden;
+}
+.bianhao_bot_tong{
+    width: 25%;
+    margin-top: 0.3rem;
+}
+.bianhao_bot_tong>p{
+    color:#fff;
+    font-size:0.5rem;
+}
+.bianhao_bot_tong .img{
+    width: 0.4rem;
+    height: 0.6rem;
+}
+.bianhao_bot_tong_lf p.text-center{
+    font-size: 0.5rem;
+    color: #fff;
+    padding-top: 0.3rem;
+}
+.bianhao_bot_tong_lf{
+    display: inline-block;
+}
+/*.bianhao_bot_tong_line{*/
+    /*background: url("../../all/image/wqwqwq_14.png")no-repeat center center;*/
+    /*width: 0.1rem;*/
+    /*height:2.5rem;*/
+    /*margin-left: 0.1rem;*/
+    /*display: inline-block;*/
+/*}*/
+.bianhao_bot_price {
+    padding-left: 0.3rem;
+    color: #fff;
+    font-size: 0.3rem;
+    width: 48%;
+    margin-top: 0.08rem;
+    margin-bottom: 0.08rem;
+}
+.bianhao_bot_price_c{
+    background: url(../../all/image/wqwqwd_20.png) no-repeat center center;
+    width: 1.5rem;
+    height: 0.08rem;
+    padding: 0.08rem 0rem;
+    float: left;
+}
+.biao_price_lf{
+    width: 39%;
+    line-height: 0.45rem;
+}
+.biao_price_lf .bianhao_bot_price_b>p{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    text-align: left;
+}
+.bianhao_bot_price_b{
+    position: relative;
+}
+.biao_price_lf{
+    width: 39%;
+    line-height: 0.45rem;
+}
+.bianhao_bot_price .text-center{
+    width: 0.6rem;
+    height: 0.6rem;
+    margin: 0.6rem 0.1rem 0 -0.1rem;
+}
+.bianhao_bot_yk{
+    width: 25%;
+    color:#fff;
+    font-size:0.5rem;
+    padding: 0 0.2rem;
+    word-wrap: break-word; word-break: normal;
+}
+.bianhao_bot_yk h3{
+    color:#ff0000;
+    font-size:0.4rem;
+    display: inline-block;
+    padding-left: 0.2rem;
+}
+.bianhao_botg_yk{
+    width: 25%;
+    color:#a5a5a8;
+    font-size:0.5rem;
+    padding: 0 0.2rem;
+    word-wrap: break-word;
+    word-break: normal;
+}
+.bianhao_botg_yk h3{
+    color:#69C00A;
+    font-size:0.4rem;
+    display: inline-block;
+    padding-left: 0.2rem;
+}
+.bianhao_both_yk{
+    width: 25%;
+    color:#4b4b4b;
+    font-size:0.5rem;
+    padding: 0 0.2rem;
+    word-wrap: break-word;
+    word-break: normal;
+}
+.bianhao_both_yk h3{
+    color:#929292;
+    font-size:0.4rem;
+    display: inline-block;
+    padding-left: 0.2rem;
+}
+.biao_price_lf p{
+    font-size:0.28rem;
+}
+.biao_price_lf p.daoqitime{
+    margin-left: -0.7rem;
+}
+.bianhao_p p{
+    font-size:0.4rem;
+}

@@ -1,0 +1,211 @@
+@charset "utf-8";
+/* CSS Document */
+.i-form{
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+    overflow: hidden;
+    padding: 0.8rem 0.4rem 0.2rem 0.4rem;
+    background: #1e1e1e;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+     border-radius: 0.2rem;
+    line-height: 0.9rem;
+    /* border: 2px solid #003469; */
+}
+.wrap:before {
+    content: "";
+    display: block;
+    height: 0.1rem;
+}
+i.bank_line{
+    width: 0.03rem;
+    height: 0.6rem;
+    background: url("../../all/image/banka_line.png") no-repeat center center;
+    background-size: 0.03rem 0.6rem;
+    display: inline-block;
+    position: absolute;
+    top:0.2rem;
+    left: 2rem;
+}
+
+.f-line {
+    width: 8.8rem;
+    border-color: #c1c1c1;
+    position: relative;
+    float: left;
+    height:1rem;
+    line-height: 1rem;
+    font-size: 0.45rem;
+    background: #000;
+    border-radius: 0.2rem;
+    padding-left: 0.3rem;
+    margin-bottom: 0.3rem;
+    color:#a2a3a3;
+}
+.form-box{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    /*background:#01244A;*/
+    padding:0 1em;
+    overflow: hidden;
+}
+.f-line{
+    width: 100%;
+}
+.f-line:last-child{
+    border-bottom: 0;
+}
+.f-line em{
+    float: left;
+    height: 1rem;
+    font-size: 0.35rem;
+    color: #2886aa;
+    line-height: 1rem;
+}
+.f-label{
+    float: left;
+    width: 2.5rem;
+    height:  1rem;
+    font-size: 0.35rem;
+    line-height:  1rem;
+}
+.f-input{
+    float: left;
+    width: 62%;
+    background:#000;
+    height: 1rem;
+    font-size: 0.35rem;
+    color: #a2a3a3;
+    border: 0;
+}
+.f-sub{
+    margin-top: 5%;
+    display:block;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    background: #ff7c80;
+    padding: .3em 0;
+    cursor: pointer;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #fff;
+}
+.f-select{
+    width: 61%;
+    height: 1rem;
+    float: left;
+    font-size: 1.3rem;
+    color: #d0d0d0;
+    background: url("../images/select-arr.png") right no-repeat;
+    background-size: 12px 14px;
+    border: 0 none transparent;
+}
+.f-p-line{
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background:#01244A;
+    padding:0 1em;
+}
+.f-pwd{
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    background:#01244A;
+    font-size: 1.3rem;
+    color: #d0d0d0;
+}
+/****提现成功---Start****/
+#crSuccess{
+    top: 20%;
+}
+.w-con{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.w-title{
+    width: 100%;
+    padding: .5em 0;
+    font-size: 1.5rem;
+    color: #686868;
+}
+.w-title span,
+.w-title strong{
+    color: #d30101;
+}
+.w-title span{
+    font-size: 1.5rem;
+}
+.w-title strong{
+    font-size: 2rem;
+}
+
+.w-p{
+    width: 100%;
+    padding: .3em 0 1em 0;
+    font-size: 1.4rem;
+    color: #969696;
+}
+.p-btn{
+    display: block;
+    width: 80%;
+    margin: 15px auto 0;
+    border: 0;
+    border-radius: 5px;
+    background: #d3af30;
+    padding: .3em 0;
+    cursor: pointer;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #000;
+}
+.b-title{
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.b-close{
+    position: absolute;
+    right: -3%;
+    top: 0;
+    width: 15%;
+    cursor: pointer;
+}
+.b-close img{
+    width: 100%;
+}
+.banks{background: url(../images/bankbg.jpg);padding-top: 10px;color: #fff;width: 99%;}
+.hover{border: 1px solid #FF790C;opacity: 0.6;}
+.banks p{line-height: 24px;}
+.bname{font-size:18px;}
+.bankid{height: 37px;font-size: 20px;text-align: right;padding-right: 10px; margin-top: 15px;}
+/****提现成功---End****/
+
+
+
+.titijiao{
+    /*width: 9.6rem;*/
+    height: 1rem;
+    line-height: 1rem;
+    background: #d3af30;
+    border-radius:0.2rem;
+    margin-top: 0.4rem;
+    margin-bottom: 2rem;
+
+}
+.titijiao button{
+    width: 8rem;
+    height:0.9rem;
+    line-height:0.9rem;
+    border:0;
+    background: #d3af30;
+    font-size:0.45rem;
+    text-align: center;
+    color:#00;
+}

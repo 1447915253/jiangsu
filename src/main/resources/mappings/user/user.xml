@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rmkj.microcap.modules.user.dao.UserDao">
+    <select id="findUserByOpenId" parameterType="string" resultType="com.rmkj.microcap.modules.user.entity.User">
+        SELECT
+          id AS id,
+          open_id AS openId,
+          user_header AS userHeader,
+          chn_name AS chnName,
+          mobile AS mobile,
+          trade_password AS tradePassword,
+          money AS money,
+          recharge_money AS rechargeMoney,
+          coupon_money AS couponMoney,
+          out_money AS outMoney,
+          agent_invite_code AS agentInviteCode,
+          status AS status,
+          register_time AS registerTime,
+          last_login_time AS lastLoginTime,
+          last_login_ip AS lastLoginIpcreateCorps
+         FROM tb_user WHERE open_id = #{openId}
+    </select>
+
+    <insert id="registerUser" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        INSERT INTO tb_user (id, open_id, user_header, wechat_public_id, chn_name, agent_invite_code)
+         VALUES
+          (
+          #{id},
+          #{openId},
+          #{userHeader},
+          #{wechatPublicId},
+          #{chnName},
+          #{agentInviteCode}
+          )
+    </insert>
+
+    <insert id="insert" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        INSERT INTO tb_user (id, open_id, user_header, chn_name, mobile, trade_password, agent_invite_code, register_time,money,status
+            <if test="parent2Id != null and parent2Id != ''">
+                , parent2_id
+            </if>
+            <if test="parent3Id != null and parent3Id != ''">
+                , parent3_id
+            </if>
+          )
+         VALUES
+          (
+          #{id},
+          #{openId},
+          #{userHeader},
+          #{chnName},
+          #{mobile},
+          #{tradePassword},
+          #{agentInviteCode},
+          now(),
+          #{money},
+          #{status}
+
+            <if test="parent2Id != null and parent2Id != ''">
+                ,#{parent2Id}
+            </if>
+            <if test="parent3Id != null and parent3Id != ''">
+                ,#{parent3Id}
+            </if>
+          )
+    </insert>
+
+    <update id="reg" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user SET chn_name=#{chnName}, mobile=#{mobile}, trade_password=#{tradePassword},money = #{money},status=#{status}
+            <if test="agentInviteCode != null and agentInviteCode != ''">
+              , agent_invite_code= if(agent_invite_code is null, #{agentInviteCode}, agent_invite_code)
+            </if>
+            <if test="parent2Id != null and parent2Id != ''">
+              , parent2_id=#{parent2Id}
+            </if>
+            <if test="parent3Id != null and parent3Id != ''">
+              , parent3_id=#{parent3Id}
+            </if>
+          , register_time=now(), ticket=#{ticket}
+         WHERE id = #{id} AND mobile is null
+    </update>
+    <select id="findUnitsIdByAgentInviteCode" parameterType="string" resultType="string">
+        SELECT units_id AS unitsId
+        FROM tb_ml3_agent WHERE agent_invite_code = #{agentInviteCode}
+    </select>
+    <select id="findTradeStatusById" parameterType="string" resultType="java.lang.Integer">
+        SELECT trade_status as tradeStatus
+        FROM tb_ml3_member_units where id = #{unitsId}
+    </select>
+    <select id="findUserById" parameterType="string" resultType="com.rmkj.microcap.modules.user.entity.User">
+        SELECT
+          id AS id,
+          auto_id AS autoId,
+          open_id AS openId,
+          wechat_public_id AS wechatPublicId,
+          user_header AS userHeader,
+          chn_name AS chnName,
+          mobile AS mobile,
+          trade_password AS tradePassword,
+          money AS money,
+          recharge_money AS rechargeMoney,
+          trade_count AS tradeCount,
+          out_money AS outMoney,
+          coupon_money AS couponMoney,
+          agent_invite_code AS agentInviteCode,
+          status AS status,
+          register_time AS registerTime,
+          last_login_time AS lastLoginTime,
+          last_login_ip AS lastLoginIp,
+          parent1_id AS parent1Id,
+          parent2_id AS parent2Id,
+          parent3_id AS parent3Id,
+          return_money AS returnMoney,
+          return_money_total AS returnMoneyTotal,
+          ticket_wechat_public_id AS ticketWechatPublicId,
+          ticket AS ticket,
+          ticket_expire_time AS ticketExpireTime,
+          id_card AS idCard
+        FROM tb_user
+        WHERE id = #{id}
+    </select>
+
+    <select id="findUserByAutoId" parameterType="string" resultType="com.rmkj.microcap.modules.user.entity.User">
+        SELECT
+          id AS id,
+          auto_id AS autoId,
+          open_id AS openId,
+          wechat_public_id AS wechatPublicId,
+          user_header AS userHeader,
+          chn_name AS chnName,
+          mobile AS mobile,
+          trade_password AS tradePassword,
+          money AS money,
+          recharge_money AS rechargeMoney,
+          trade_count AS tradeCount,
+          out_money AS outMoney,
+          coupon_money AS couponMoney,
+          agent_invite_code AS agentInviteCode,
+          status AS status,
+          register_time AS registerTime,
+          last_login_time AS lastLoginTime,
+          last_login_ip AS lastLoginIp,
+          parent1_id AS parent1Id,
+          parent2_id AS parent2Id,
+          parent3_id AS parent3Id,
+          return_money AS returnMoney,
+          return_money_total AS returnMoneyTotal,
+          ticket_wechat_public_id AS ticketWechatPublicId,
+          ticket AS ticket,
+          ticket_expire_time AS ticketExpireTime,
+          id_card AS idCard
+        FROM tb_user
+        WHERE auto_id = #{id}
+    </select>
+
+    <!-- 三级营销系统 停用的代理和会员单位、运营中心是否写入? -->
+    <select id="findAgent3UserById" parameterType="string" resultType="com.rmkj.microcap.modules.user.entity.Agent3User">
+        SELECT
+          t.id AS id,
+          t.open_id AS openId,
+          t.user_header AS userHeader,
+          t.chn_name AS chnName,
+          t.mobile AS mobile,
+          t.trade_password AS tradePassword,
+          t.money AS money,
+          t.recharge_money AS rechargeMoney,
+          t.coupon_money AS couponMoney,
+          t.agent_invite_code AS agentInviteCode,
+          t.status AS status,
+          t.register_time AS registerTime,
+          t.last_login_time AS lastLoginTime,
+          t.last_login_ip AS lastLoginIp,
+          t.parent1_id AS parent1Id,
+          t.parent2_id AS parent2Id,
+          t.parent3_id AS parent3Id,
+          ta.id AS agentId,
+          tu.id AS unitsId,
+          tu.center_id AS centerId
+        FROM tb_user t
+         LEFT JOIN tb_ml3_agent ta ON t.agent_invite_code=ta.agent_invite_code
+          LEFT JOIN tb_ml3_member_units tu ON tu.id=ta.units_id
+        WHERE t.id = #{id}
+    </select>
+
+    <select id="tradeList" parameterType="com.rmkj.microcap.modules.user.entity.User" resultType="com.rmkj.microcap.modules.trade.entity.Trade">
+        SELECT
+          id AS id,
+          serial_no AS serialNo,
+          money AS money,
+          type AS type,
+          fee AS fee,
+          contract_name AS contractName,
+          point_value AS pointValue,
+          profit_max AS profitMax,
+          loss_max AS lossMax,
+          buy_up_down AS buyUpDown,
+          `status` AS status,
+          buy_time AS buyTime,
+          buy_point AS buyPoint,
+          sell_point AS sellPoint,
+          dif_money AS difMoney,
+          sell_type AS sellType,
+          sell_time AS sellTime
+        FROM tb_trade
+        WHERE user_id = #{id} AND `status` = 1
+        ORDER BY sell_time DESC
+    </select>
+
+    <select id="moneyRecordList" parameterType="com.rmkj.microcap.modules.user.entity.User" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord">
+        SELECT
+          id AS id,
+          serial_no AS serialNo,
+          user_id AS userId,
+          money AS money,
+          fee AS fee,
+          `type` AS type,
+          third_serial_no AS thirdSerialNo,
+          status AS status,
+          remark AS remark,
+          create_time AS createTime
+        FROM tb_money_record
+        WHERE user_id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询充值成功的订单 -->
+    <select id="findOutMoneyList" parameterType="com.rmkj.microcap.modules.user.entity.User" resultType="java.lang.Integer">
+        SELECT
+            count(*)
+        FROM tb_money_record
+        WHERE user_id = #{id} AND 'type' = 0 AND status = 1
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="moneyRecord" parameterType="com.rmkj.microcap.modules.money.entity.MoneyRecord" resultType="com.rmkj.microcap.modules.money.entity.MoneyRecord">
+        SELECT
+          id AS id,
+          serial_no AS serialNo,
+          user_id AS userId,
+          money AS money,
+          fee AS fee,
+          `type` AS type,
+          third_serial_no AS thirdSerialNo,
+          status AS status,
+          remark AS remark,
+          create_time AS createTime,
+          complete_time AS completeTime,
+          chn_name AS chnName,
+          bank_name AS bankName,
+          bank_account AS bankAccount,
+          failure_reason as FailureReason
+        FROM tb_money_record
+        WHERE id = #{id} AND user_id = #{userId}
+    </select>
+
+    <update id="update" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user
+         <set>
+             <if test="chnName != null and chnName != ''">
+                 chn_name = #{chnName},
+             </if>
+             <if test="mobile != null and mobile != ''">
+                 mobile = #{mobile},
+             </if>
+             <if test="tradePassword != null and tradePassword != ''">
+                 trade_password = #{tradePassword},
+             </if>
+             <if test="agentInviteCode != null and agentInviteCode != '' ">
+                 agent_invite_code = #{agentInviteCode}
+             </if>
+         </set>
+         WHERE id = #{id}
+    </update>
+
+    <update id="updateUserTradeCount" parameterType="string">
+        UPDATE tb_user SET trade_count = trade_count + 1 WHERE id = #{userId}
+    </update>
+
+    <update id="changeUserMoney" parameterType="com.rmkj.microcap.modules.money.entity.MoneyChange">
+        UPDATE tb_user SET money = money + #{difMoney} WHERE id = #{userId} AND money + #{difMoney} >= 0
+    </update>
+
+    <update id="changeUserRechargeMoney" parameterType="com.rmkj.microcap.modules.money.entity.MoneyChange">
+        UPDATE tb_user SET recharge_money = recharge_money + #{difMoney} WHERE id = #{userId}
+    </update>
+
+    <update id="changeCouponMoney" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user SET coupon_money = coupon_money + #{couponMoney} WHERE id = #{id} AND coupon_money + #{couponMoney} >= 0
+    </update>
+
+    <!-- 根据用户id查询资金变更明细 -->
+    <select id="findMoneyChangeByUserId" parameterType="com.rmkj.microcap.modules.money.entity.MoneyChange" resultType="com.rmkj.microcap.modules.money.entity.MoneyChange">
+      SELECT
+        id AS id,
+        user_id AS userId,
+        dif_money AS difMoney,
+        `type` AS type,
+        before_money AS beforeMoney,
+        after_money AS afterMoney,
+        create_time AS createTime,
+        remark AS remark
+      FROM tb_money_change
+        WHERE user_id = #{userId}
+          <if test="flag == 1">
+              AND TO_DAYS(create_time) = TO_DAYS(NOW())
+          </if>
+          <if test="flag == 2">
+              AND DATE_SUB(CURDATE(), INTERVAL 7 DAY) &lt;= date(create_time)
+          </if>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="findUserByMobile" parameterType="string" resultType="com.rmkj.microcap.modules.user.entity.User">
+        SELECT
+          id AS id,
+          open_id AS openId,
+          user_header AS userHeader,
+          chn_name AS chnName,
+          mobile AS mobile,
+          trade_password AS tradePassword,
+          money AS money,
+          recharge_money AS rechargeMoney,
+          agent_invite_code AS agentInviteCode,
+          status AS status,
+          register_time AS registerTime,
+          last_login_time AS lastLoginTime,
+          last_login_ip AS lastLoginIp
+        FROM tb_user
+        WHERE mobile = #{mobile}
+    </select>
+
+    <update id="updateLogin" parameterType="com.rmkj.microcap.modules.user.entity.User">
+      UPDATE tb_user SET last_login_time = #{lastLoginTime}, last_login_ip = #{lastLoginIp} WHERE id = #{id}
+    </update>
+
+    <update id="resetUserTradePwd" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user
+        <set>
+            <if test="tradePassword != null and tradePassword != ''">
+                trade_password = #{tradePassword}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="findThirdLevelAgentByInviteCode" parameterType="string" resultType="com.rmkj.microcap.modules.user.bean.ThirdLevelAgent">
+        SELECT
+        id AS id,
+        user_id AS userId,
+        units_id AS unitsId,
+        account AS account,
+        safe_password AS safePassword,
+        agent_invite_code AS agentInviteCode,
+        real_name AS realName,
+        agent_header AS agentHeader,
+        money AS money,
+        total_money as totalMoney,
+        status AS status,
+        review_status AS reviewStatus,
+        create_time AS createTime,
+        last_login_time AS lastLoginTime,
+        last_login_ip AS lastLoginIp,
+        bank_account_name AS bankAccountName,
+        bank_account AS bankAccount,
+        bank_name AS bankName,
+        bank_child_name AS bankChildName,
+        id_card AS idCard
+        FROM tb_ml3_agent
+        WHERE agent_invite_code = #{agentInviteCode}
+    </select>
+
+    <update id="bindToParents" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user SET
+         parent2_id = #{id}, parent3_id = #{parent2Id}, agent_invite_code = #{agentInviteCode}
+        WHERE open_id = #{openId} AND `status` = 0 AND parent2_id is null AND mobile is  null AND id != #{id}
+        <if test="parent2Id != null">
+            AND id != #{parent2Id}
+        </if>
+        <if test="parent3Id != null">
+            AND id != #{parent3Id}
+        </if>
+    </update>
+
+    <update id="createCorps" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user SET id_card = #{idCard}, ticket = #{ticket} WHERE id = #{id}
+    </update>
+
+    <insert id="addBankCard" parameterType="com.rmkj.microcap.modules.user.entity.BankCard">
+        INSERT INTO tb_bank_card
+          (id, user_id, chn_name, bank_account, bank_name, open_bank_name, province, city, bank_code, id_card, lian_hang_no, create_time, remark)
+         VALUES
+          (#{id}, #{userId}, #{chnName}, #{bankAccount}, #{bankName}, #{openBankName}, #{province}, #{city}, #{bankCode}, #{idCard}, #{lianHangNo},  now(), #{remark})
+    </insert>
+
+    <!-- 修改银行卡密码 -->
+    <update id="updateBankCard" parameterType="com.rmkj.microcap.modules.user.bean.AddBankCard">
+        UPDATE tb_bank_card SET
+        <if test="chnName != null">
+            chn_name = #{chnName},
+        </if>
+        <if test="bankAccount != null">
+            bank_account = #{bankAccount}
+        </if>
+<!--        <if test="bankName != null">
+            bank_name = #{bankName},
+        </if>
+        <if test="openBankName != null">
+            open_bank_name = #{openBankName}
+        </if>-->
+        <!--<if test="province != null">-->
+            <!--province = #{province},-->
+        <!--</if>-->
+        <!--<if test="city != null">-->
+            <!--city = #{city}-->
+        <!--</if>-->
+        WHERE user_id = #{userId}
+    </update>
+    
+    <select id="findBankCard" parameterType="string" resultType="com.rmkj.microcap.modules.user.entity.BankCard">
+        SELECT
+        id,
+        user_id AS userId,
+        chn_name AS chnName,
+        bank_account AS bankAccount,
+        bank_name AS bankName,
+        open_bank_name AS openBankName,
+        bank_code AS bankCode,
+        id_card AS idCard,
+        lian_hang_no AS lianHangNo,
+        province,
+        city,
+        create_time AS createTime,
+        remark
+        FROM tb_bank_card
+        WHERE user_id = #{id}
+         limit 0,1
+    </select>
+
+    <update id="subtractReturnMoney" parameterType="com.rmkj.microcap.modules.money.entity.ReturnMoneyOut">
+        UPDATE tb_user SET return_money = return_money - #{money} - #{fee} WHERE return_money - #{money} - #{fee} &gt;= 0 AND id = #{userId}
+    </update>
+
+    <select id="findAgentByMobile" parameterType="string" resultType="string">
+        SELECT agent_invite_code AS agentInviteCode
+        FROM tb_ml3_agent WHERE mobile = #{val} limit 0,1
+    </select>
+
+    <update id="updateWeiXinInfo" parameterType="com.rmkj.microcap.common.modules.weixin.bean.WeiXinUserInfo">
+        UPDATE tb_user SET user_header = #{headimgurl}, chn_name = #{nickname} WHERE open_id = #{openid}
+    </update>
+
+    <update id="bindWeiXinInfo" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user SET user_header = #{userHeader}, open_id = #{openId}, wechat_public_id = #{wechatPublicId} WHERE id = #{id}
+    </update>
+
+    <select id="findAgent1InviteCodeById" resultType="string" parameterType="string">
+        SELECT agent_invite_code FROM tb_ml3_agent WHERE user_id = #{id}
+    </select>
+
+    <select id="selUserHoldMoney" parameterType="string" resultType="java.math.BigDecimal">
+        SELECT SUM(money) FROM tb_trade WHERE user_id = #{userId} AND `status` = 0
+    </select>
+    <select id="selUserHoldCounts" parameterType="string" resultType="java.lang.Long">
+        SELECT COUNT(id) FROM tb_trade WHERE user_id = #{userId} AND `status` = 0
+    </select>
+
+    <select id="getUserLastLoginTime" parameterType="string" resultType="com.rmkj.microcap.modules.user.entity.User">
+        SELECT
+          id AS id,
+          chn_name AS chnName
+        FROM tb_user
+        WHERE id = #{userId} AND last_login_time IS NULL
+    </select>
+
+    <!-- 支行信息 模糊查询提示-->
+    <select id="findBankCodeName" parameterType="string" resultType="string">
+      SELECT name FROM bank_code WHERE name LIKE #{mainWord} limit 0,20
+    </select>
+
+    <!-- 威鹏支付： 根据支行名查询支行信息 -->
+    <select id="findBankCodeByName" parameterType="string" resultType="com.rmkj.microcap.modules.user.bean.BankCodeBean">
+        SELECT
+        id AS  id,
+        aa as aa,
+        bankno AS bankNo,
+        settQsBankCode AS settQsBankCode,
+        name AS name,
+        settAreaCode AS settAreaCode,
+        note AS note
+        FROM bank_code WHERE name = #{bankName} limit 0,1
+    </select>
+
+    <insert id="updateQrcodeTicket" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user SET ticket_wechat_public_id = #{ticketWechatPublicId}, ticket = #{ticket}, ticket_expire_time = #{ticketExpireTime}
+         where id = #{id}
+    </insert>
+
+    <update id="clearSameOpenIdUser" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user set open_id = null where open_id = #{openId}
+    </update>
+
+    <delete id="deleteSameOpenIdAndNoMobileUser" parameterType="string">
+        DELETE FROM tb_user WHERE id = #{id} and mobile is null
+    </delete>
+
+    <!-- 根据银行卡号，验证银行卡是否已被绑定 -->
+    <select id="findIsNullByAccount" parameterType="com.rmkj.microcap.modules.user.bean.AddBankCard" resultType="com.rmkj.microcap.modules.user.entity.BankCard">
+        SELECT
+            id,
+            user_id AS userId,
+            chn_name AS chnName,
+            bank_account AS bankAccount,
+            bank_name AS bankName,
+            open_bank_name AS openBankName,
+            province,
+            city,
+            create_time AS createTime,
+            remark
+        FROM tb_bank_card
+        WHERE bank_account = #{bankAccount} and user_id != #{userId}
+    </select>
+
+    <update id="commissionToMoney" parameterType="com.rmkj.microcap.modules.money.entity.ReturnMoneyOut">
+        UPDATE tb_user SET return_money = return_money - #{money}   WHERE return_money - #{money}   &gt;= 0 AND id = #{userId}
+    </update>
+
+</mapper>

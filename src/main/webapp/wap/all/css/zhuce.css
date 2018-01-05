@@ -1,0 +1,149 @@
+
+.user_top{
+    margin-top: 5.3rem;
+    margin-bottom: 0.2rem;
+    overflow: hidden;
+    padding: 0.8rem 0.4rem 0.2rem 0.4rem;
+    background: #000000;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    border-radius: 0.2rem;
+    line-height: 0.9rem;
+    /* border: 2px solid #003469; */
+}
+.w-item {
+    width: 9.6rem;
+    border-color: #c1c1c1;
+    position: relative;
+    float: left;
+    line-height: 0.95rem;
+    font-size: 0.4rem;
+    background: #101419;
+    border-radius: 0.2rem;
+    padding-left: 0.3rem;
+    margin-bottom: 0.3rem;
+    color: #a9a9a9;
+}
+
+.w-item input{
+    /*float: left;*/
+    text-align: left;
+    height:0.85rem;
+    width: 6rem;
+    line-height:0.85rem;
+    border-radius: .2rem;
+    font-size: .45rem;
+    background: #101419;
+    color:#fff;
+    margin-top: -0.1rem;
+}
+.w-item input.copy {
+    width: 5rem;
+    height: 0.95rem;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: .2rem;
+    font-size: .35rem;
+    background: #000c1a;
+    color:#fff;
+}
+.w-item input.fill,.w-item input.green {
+    float: right;
+    width: 3rem;
+    height: 0.95rem;
+    text-align: center;
+    background: #bfa4a4;
+    border-radius: 8px;
+    border: 0;
+    font-size: 0.4rem;
+    color: #a9a9a9;
+    padding-left: 0.4rem;
+    padding-right: 0.5rem;
+    margin-left: 0.3rem;
+}
+.login {
+    /* display: block; */
+    font-size: 0.5rem;
+    color: #000;
+    width: 9.8rem;
+    height: 0.95rem;
+    line-height: 0.95rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: #d3af30;
+    border: 0;
+    border-radius: 0.2rem;
+}
+.w-item input{
+    font-size:0.4rem;
+}
+.w-item input.green{
+    width: 2.2rem;
+    text-align: left;
+    padding-left: 0.1rem;
+    background: #000;
+    margin-top: 0.01rem;
+    color:#999999;
+}
+.tianxie,.huoqu{
+    background: transparent;
+    padding-left: 0rem;
+}
+.tianxie .yanzhen{
+    width: 7rem;
+}
+.huoqu .yanduanx{
+    width: 7rem;
+}
+.huoqu .yanduanx input{
+    width: 4rem;
+    font-size: 0.4rem;
+}
+.tianxie .yanzhen input{
+    width: 2.5rem;
+    font-size: 0.4rem;
+}
+.huoqu input.copy{
+    width: 6rem;
+}
+.fuxuan{
+    font-size:0.4rem;
+    color: #999;
+}
+.fuxuan .checkbox{
+    margin-right: 0.3rem;
+    border:1px solid #fff;
+    background: transparent;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.fuxuan>span{
+    color:#0d89f2;
+}
+.login_name{
+    background: url(../../all/image/log.png) no-repeat center center;
+    width: 5.5rem;
+    height: 4.1rem;
+    background-size: 5.5rem 4.1rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 2.5rem;
+}
+/*.f-label{*/
+/*width: 2.4rem;*/
+/*}*/
+i.pas_line {
+    width: 0.03rem;
+    height: 0.6rem;
+    background: url(../../all/image/pas_line.png) no-repeat no-repeat center center;
+    background-size: 0.03rem 0.6rem;
+    margin-left: 0.051rem;
+    margin-right: 0.1rem;
+}
+.f-label{
+    width: 3rem;
+}
+.input_hidden{
+    display: none;
+}
+/*footer*/

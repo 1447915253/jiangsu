@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rmkj.microcap.modules.user.dao.Ml3AgentDao" >
+  <resultMap id="BaseResultMap" type="com.rmkj.microcap.modules.user.entity.Ml3Agent" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="units_id" property="unitsId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="safe_password" property="safePassword" jdbcType="VARCHAR" />
+    <result column="agent_invite_code" property="agentInviteCode" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="agent_header" property="agentHeader" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="total_money" property="totalMoney" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="review_status" property="reviewStatus" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
+    <result column="last_login_ip" property="lastLoginIp" jdbcType="VARCHAR" />
+    <result column="bank_account_name" property="bankAccountName" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="bank_child_name" property="bankChildName" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, units_id, user_id, account, mobile, safe_password, agent_invite_code,
+    real_name, agent_header, money, total_money, status, review_status, create_time, 
+    last_login_time, last_login_ip, bank_account_name, bank_account, bank_name, bank_child_name, 
+    id_card
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_ml3_agent
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByAgentInviteCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_ml3_agent
+    where  agent_invite_code = #{agentInviteCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_ml3_agent
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rmkj.microcap.modules.user.entity.Ml3Agent" >
+    insert into tb_ml3_agent (id, units_id, user_id, 
+      account, mobile,
+      safe_password, agent_invite_code, real_name, 
+      agent_header, money, total_money, 
+      status, review_status, create_time, 
+      last_login_time, last_login_ip, bank_account_name, 
+      bank_account, bank_name, bank_child_name, 
+      id_card)
+    values (#{id,jdbcType=VARCHAR}, #{unitsId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{account,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+      #{safePassword,jdbcType=VARCHAR}, #{agentInviteCode,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{agentHeader,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{totalMoney,jdbcType=DECIMAL}, 
+      #{status,jdbcType=INTEGER}, #{reviewStatus,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{lastLoginIp,jdbcType=VARCHAR}, #{bankAccountName,jdbcType=VARCHAR}, 
+      #{bankAccount,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, #{bankChildName,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rmkj.microcap.modules.user.entity.Ml3Agent" >
+    insert into tb_ml3_agent
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="unitsId != null" >
+        units_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="safePassword != null" >
+        safe_password,
+      </if>
+      <if test="agentInviteCode != null" >
+        agent_invite_code,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="agentHeader != null" >
+        agent_header,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="totalMoney != null" >
+        total_money,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reviewStatus != null" >
+        review_status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time,
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip,
+      </if>
+      <if test="bankAccountName != null" >
+        bank_account_name,
+      </if>
+      <if test="bankAccount != null" >
+        bank_account,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="bankChildName != null" >
+        bank_child_name,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="unitsId != null" >
+        #{unitsId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="safePassword != null" >
+        #{safePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="agentInviteCode != null" >
+        #{agentInviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentHeader != null" >
+        #{agentHeader,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoney != null" >
+        #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reviewStatus != null" >
+        #{reviewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null" >
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccountName != null" >
+        #{bankAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankChildName != null" >
+        #{bankChildName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rmkj.microcap.modules.user.entity.Ml3Agent" >
+    update tb_ml3_agent
+    <set >
+      <if test="unitsId != null" >
+        units_id = #{unitsId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="safePassword != null" >
+        safe_password = #{safePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="agentInviteCode != null" >
+        agent_invite_code = #{agentInviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentHeader != null" >
+        agent_header = #{agentHeader,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoney != null" >
+        total_money = #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reviewStatus != null" >
+        review_status = #{reviewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null" >
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccountName != null" >
+        bank_account_name = #{bankAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankChildName != null" >
+        bank_child_name = #{bankChildName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rmkj.microcap.modules.user.entity.Ml3Agent" >
+    update tb_ml3_agent
+    set units_id = #{unitsId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      safe_password = #{safePassword,jdbcType=VARCHAR},
+      agent_invite_code = #{agentInviteCode,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      agent_header = #{agentHeader,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DECIMAL},
+      total_money = #{totalMoney,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      review_status = #{reviewStatus,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      bank_account_name = #{bankAccountName,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      bank_child_name = #{bankChildName,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <sql id="Base_Column" >
+    id AS id,
+    units_id AS unitsId,
+    user_id AS userId,
+    account AS account,
+    mobile AS mobile,
+    safe_password AS safePassword,
+    agent_invite_code AS agentInviteCode,
+    real_name AS realName,
+    agent_header AS agentHeader,
+    money AS money,
+    total_money AS totalMoney,
+    status AS status,
+    review_status AS reviewStatus,
+    create_time AS createTime,
+    last_login_time AS lastLoginTime,
+    last_login_ip AS lastLoginIp,
+    bank_account_name AS bankAccountName,
+    bank_account AS bankAccount,
+    bank_name AS bankName,
+    bank_child_name AS bankChildName,
+    id_card AS idCard
+  </sql>
+
+  <!-- 根据验证码查询数据 -->
+  <select id="findMl3AgentSelective" resultMap="BaseResultMap" parameterType="string">
+    SELECT 
+      <include refid="Base_Column"/>
+     FROM  tb_ml3_agent WHERE agent_invite_code = #{code}
+  </select>
+  <!-- 选择性查询数据 -->
+  <select id="findMl3AgentSelectived" resultType="com.rmkj.microcap.modules.user.entity.Ml3Agent" parameterType="com.rmkj.microcap.modules.user.entity.Ml3Agent">
+    SELECT
+      <include refid="Base_Column"/>
+    FROM tb_ml3_agent
+      WHERE 1 = 1
+      <if test="id != null and id != ''">
+        AND id = #{id}
+      </if>
+        <if test="userId != null and userId != '' ">
+          AND  user_id = #{userId}
+        </if>
+        <if test="agentInviteCode != null and agentInviteCode != ''">
+          AND agent_invite_code = #{agentInviteCode}
+        </if>
+  </select>
+  
+</mapper>

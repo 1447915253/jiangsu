@@ -1,0 +1,238 @@
+﻿/* S 公用css */
+*, ::before, ::after {
+    padding: 0;
+    margin: 0;
+    /* 我们要去除在所有的浏览器当中点击过后有一个高亮效果 */
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    /* 我们需要设置无哦有的元素宽度以边框开始 */
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Microsoft YaHei", sans-serif;
+    color: #888;
+    background: #fff;
+}
+i,em {
+    font-style: normal;
+}
+ol, ul {
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-style: normal;
+    font-weight: normal;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+input[type="search"], input[type="tel"], textarea {
+    border: 0;
+    resize: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.f_left {
+    float: left;
+}
+
+.f_right {
+    float: right;
+}
+
+.clearfix::after,
+.clearfix::before {
+    content: ".";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+.clearfix{
+    *zoom:1;
+}
+img{
+    border:none;
+}
+
+/* D 基础样式*/
+
+/*  菜单  */
+.menus {
+    position: fixed;
+    bottom: 0;
+    z-index: 666;
+    overflow: hidden;
+    height: 5.5rem;
+    background: #fff;
+    border-top: 1px solid #ccc;
+	width:100%;
+}
+.menus ul {
+    overflow: hidden;
+   background-color: #011B34;
+}
+
+.menus ul li {
+    float: left;
+    width: 4.0rem;
+    height: 5.5rem;
+    text-align: center;
+	width:20%
+}
+
+.menus a {
+    display: block;
+    height: 0.8rem;
+    padding-top:10px;
+    font-size: 1rem;
+    color: #395797;
+    background-size: 2.2rem;
+    font-weight: bold;
+}
+.home:before {content: "";display: block;
+    background: url(../img/images2/css_sprites.png) no-repeat;
+    width: 38px;
+    height:38px;
+    background-position-y: 0;
+    background-position-x: -123px;
+    margin: 0 auto;
+}
+.wallet:before {content: "";display: block;
+    background: url(../img/images2/css_sprites.png) no-repeat;
+    width: 40px;
+    height:38px;
+    background-position-y: 0;
+    background-position-x: -83px;
+    margin: 0 auto;
+}
+
+.player:before {content: "";display: block;
+    background: url(../img/images2/css_sprites.png)  no-repeat;
+    width: 41px;
+    height:38px;
+    background-position-y: 0;
+    background-position-x: -40px;
+    margin: 0 auto;
+}
+.legion:before{content: "";display: block;
+    background: url(../img/images2/legion/dp.png)  no-repeat;
+    width: 37px;
+    height:39px;
+    background-position-y: -1px;
+    /*background-position-x: -21px;*/
+    margin: 0 auto;
+}
+
+.service:before {content: "";display: block;
+    background: url(../img/images2/css_sprites.png)  no-repeat;
+    width: 37px;
+    height:38px;
+    background-position-y: -109px;
+    background-position-x: -21px;
+    margin: 0 auto;
+}
+
+.homeF {
+    background: url(../img/images/menu/homeF.png) 50% 50% no-repeat;
+}
+.walletF {
+    background: url(../img/images/menu/walletF.png) 50% 50% no-repeat;
+}
+
+.menu-avtive {
+    background: #eee;
+}
+
+/*  交易密码 */
+.trade {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.5);
+    display: none;
+}
+
+.trade-case {
+    position: relative;
+    height: 8.7rem;
+    width: 15.0rem;
+    margin: 50% auto;
+    text-align: center;
+    background: #fff;
+    border-radius: 0.25rem;
+}
+.trade-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    height: 0.6rem;
+    width: 0.6rem;
+    line-height: 0.6rem;
+    text-align: center;
+    font-size: 0.5rem;
+    color: #fff;
+    background: rgba(255,255,255,.5);
+    border-radius: 50%;
+}
+.trade-case-tag {
+    width: 100%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.7rem;
+    color: #fff;
+    text-align: center;
+    background: #E54545;
+}
+
+.trade-case-pwd {
+    width: 100%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin: 0.75rem 0;
+    font-size: 0.6rem;
+    text-align: center;
+    color: #797979;
+    border: none; 
+    border-style: none;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.trade-btn {
+    width: 100%;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    text-align: center;
+    background: #E54545;
+    font-size: 0.6rem;
+    color: #fff;
+    border: none;
+}
+
+
+.trade-forget {
+    font-size: 0.6rem;
+    color: #E54545;
+}
+#bc_show{
+    font-size:0.4rem;
+}
+
+/* 固定页面自身无法上下拖动 */
+#fixation {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+}
+
+
+

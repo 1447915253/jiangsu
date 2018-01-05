@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rmkj.microcap.modules.user.dao.Ml3MemberUnitsDao" >
+  <resultMap id="BaseResultMap" type="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits" >
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="center_id" property="centerId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="agent_invite_code" property="agentInviteCode" jdbcType="VARCHAR" />
+    <result column="two_level_domain" property="twoLevelDomain" jdbcType="VARCHAR"/>
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="bond_money" property="bondMoney" jdbcType="DOUBLE" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="bank_account_name" property="bankAccountName" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="bank_child_name" property="bankChildName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits" >
+    insert into tb_ml3_member_units (id, center_id, name, 
+      agent_invite_code, money, bond_money, 
+      real_name, id_card, bank_account_name, 
+      bank_account, bank_name, bank_child_name, 
+      status)
+    values (#{id,jdbcType=VARCHAR}, #{centerId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{agentInviteCode,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{bondMoney,jdbcType=DOUBLE}, 
+      #{realName,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{bankAccountName,jdbcType=VARCHAR}, 
+      #{bankAccount,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, #{bankChildName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits" >
+    insert into tb_ml3_member_units
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="centerId != null" >
+        center_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="agentInviteCode != null" >
+        agent_invite_code,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="bondMoney != null" >
+        bond_money,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="bankAccountName != null" >
+        bank_account_name,
+      </if>
+      <if test="bankAccount != null" >
+        bank_account,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="bankChildName != null" >
+        bank_child_name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="centerId != null" >
+        #{centerId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="agentInviteCode != null" >
+        #{agentInviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="bondMoney != null" >
+        #{bondMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccountName != null" >
+        #{bankAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankChildName != null" >
+        #{bankChildName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <!-- 根据邀请码查询会员单位 -->
+  <select id="findMl3MemberUnits" resultType="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits" parameterType="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits">
+    SELECT
+      id AS id,
+      center_id AS centerId,
+      name AS name,
+      agent_invite_code AS agentInviteCode,
+      two_level_domain AS twoLevelDomain,
+      money AS money,
+      bond_money AS bondMoney,
+      real_name AS realName,
+      id_card AS idCard,
+      bank_account_name AS bankAccountName,
+      bank_account AS bankAccount,
+      bank_name AS bankName,
+      bank_child_name AS bankChildName,
+      status AS status
+    FROM tb_ml3_member_units
+    <where> 1 = 1
+      <if test="id != null and id != '' ">
+        AND  id = #{id}
+      </if>
+      <if test="agentInviteCode != null and agentInviteCode != '' ">
+        AND  agent_invite_code = #{agentInviteCode}
+      </if>
+      </where>
+  </select>
+  <!-- 计算会员单位保证金 亏损 盈利-->
+  <update id="updateUnitsBondMoneyLossAndProfitById" parameterType="com.rmkj.microcap.modules.trade.entity.Trade">
+    UPDATE tb_ml3_member_units SET money = money - #{sumUnitsDifMoney} WHERE id = #{unitsId}
+  </update>
+
+  <select id="get" resultType="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits" parameterType="com.rmkj.microcap.modules.user.entity.Ml3MemberUnits">
+    SELECT
+    id,
+    center_id,
+    name AS name,
+    agent_invite_code,
+    money AS money,
+    bond_money AS bondMoney,
+    real_name AS realName,
+    id_card,
+    bank_account_name,
+    bank_account,
+    bank_name,
+    bank_child_name,
+    status,
+    return_fee_percent as returnFeePercent
+    FROM tb_ml3_member_units WHERE id = #{id}
+  </select>
+
+  <!-- 计算会员单位保证金 亏损 盈利  累计保证金-总盈亏 -->
+  <update id="updateUnitsMoneyLossAndProfitById" parameterType="com.rmkj.microcap.modules.trade.entity.Trade">
+    UPDATE tb_ml3_member_units SET money = bond_money - #{sumUnitsDifMoney} - #{sumReturnMoney} + #{sumReturnFee} WHERE id = #{unitsId}
+  </update>
+
+  <select id="getUnitsPercent" parameterType="string" resultType="BigDecimal">
+    SELECT return_percent_units FROM tb_ml3_member_units where id=#{unitsId}
+  </select>
+</mapper>

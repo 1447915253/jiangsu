@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rmkj.microcap.modules.corps.dao.CorpsDao">
+
+    <select id="queryUserCorpsCount" parameterType="string" resultType="com.rmkj.microcap.modules.corps.bean.UserCorps">
+        SELECT
+         count(id) AS bingCount,
+         SUM(IF(parent1_id = #{userId}, 1, 0)) AS paoBingCount,
+         SUM(IF(parent2_id = #{userId}, 1, 0)) AS qiBingCount,
+         SUM(IF(parent3_id = #{userId}, 1, 0)) AS buBingCount
+        FROM tb_user
+        WHERE (parent1_id = #{userId} OR parent2_id = #{userId} OR parent3_id = #{userId})
+         AND `status` = 0 AND mobile is not null
+    </select>
+
+    <select id="queryUserCorpsMoney" parameterType="string" resultType="com.rmkj.microcap.modules.corps.bean.UserCorps">
+      SELECT
+         IFNULL(SUM(IF(parent1_id = #{userId}, return1_money, 0)), 0) AS paoBingMoney,
+         IFNULL(SUM(IF(parent2_id = #{userId}, return2_money, 0)), 0) AS qiBingMoney,
+         IFNULL(SUM(IF(parent3_id = #{userId}, return3_money, 0)), 0) AS buBingMoney,
+         IFNULL(SUM(IF(parent1_id = #{userId}, money, 0)), 0) AS paoBingMoneyTotal,
+         IFNULL(SUM(IF(parent2_id = #{userId}, money, 0)), 0) AS qiBingMoneyTotal,
+         IFNULL(SUM(IF(parent3_id = #{userId}, money, 0)), 0) AS buBingMoneyTotal
+        FROM tb_trade
+        WHERE (parent1_id = #{userId} OR parent2_id = #{userId} OR parent3_id = #{userId})
+         AND `status` = 1 AND balance_status = 2
+    </select>
+
+    <!-- 计算返佣 -->
+    <update id="settlement" parameterType="com.rmkj.microcap.modules.corps.bean.Percent3">
+        UPDATE tb_trade SET
+        return1_money = if(sell_type = 1, if(parent1_id is null, 0, money * #{percentPaoBing}), 0),
+        return2_money = if(sell_type = 1, if(parent2_id is null, 0, money * #{percentQiBing}), 0),
+        return3_money = if(sell_type = 1, if(parent3_id is null, 0, money * #{percentBuBing}), 0),
+        balance_status = 1
+        WHERE `status` = 1 AND balance_status = 0 AND dif_money != 0
+    </update>
+
+    <!-- 统计返佣 -->
+    <select id="settlementTotalMoney" resultType="com.rmkj.microcap.modules.user.entity.User">
+        SELECT sum(return_money_total) AS returnMoneyTotal, id FROM
+        (
+        SELECT sum(return1_money) AS return_money_total, parent1_id AS id FROM tb_trade WHERE balance_status = 1 AND parent1_id is not null GROUP BY parent1_id
+        UNION
+        SELECT sum(return2_money) AS return_money_total, parent2_id AS id FROM tb_trade WHERE balance_status = 1 AND parent2_id is not null GROUP BY parent2_id
+        UNION
+        SELECT sum(return3_money) AS return_money_total, parent3_id AS id FROM tb_trade WHERE balance_status = 1 AND parent3_id is not null GROUP BY parent3_id) t
+        GROUP BY id
+    </select>
+
+    <!-- 给用户返佣 -->
+    <update id="addReturnMoneyTotal" parameterType="com.rmkj.microcap.modules.user.entity.User">
+        UPDATE tb_user SET
+        return_money = return_money + #{returnMoneyTotal},
+        return_money_total = return_money_total + #{returnMoneyTotal}
+        WHERE id = #{id}
+    </update>
+
+    <update id="settlementEnd">
+        UPDATE tb_trade SET
+        balance_status = 2
+        WHERE `status` = 1 AND balance_status = 1
+    </update>
+
+    <select id="queryUserCorpsMoneyWithTime" parameterType="com.rmkj.microcap.modules.corps.bean.CorpsMoneyWithTime"
+            resultType="com.rmkj.microcap.modules.corps.bean.UserCorps">
+        SELECT
+        IFNULL(SUM(IF(parent1_id = #{userId}, return1_money, 0)), 0) AS paoBingMoney,
+        IFNULL(SUM(IF(parent2_id = #{userId}, return2_money, 0)), 0) AS qiBingMoney,
+        IFNULL(SUM(IF(parent3_id = #{userId}, return3_money, 0)), 0) AS buBingMoney,
+        IFNULL(SUM(IF(parent1_id = #{userId}, money, 0)), 0) AS paoBingMoneyTotal,
+        IFNULL(SUM(IF(parent2_id = #{userId}, money, 0)), 0) AS qiBingMoneyTotal,
+        IFNULL(SUM(IF(parent3_id = #{userId}, money, 0)), 0) AS buBingMoneyTotal
+        FROM tb_trade
+        WHERE (parent1_id = #{userId} OR parent2_id = #{userId} OR parent3_id = #{userId})
+        AND `status` = 1 AND balance_status = 2 AND sell_time BETWEEN #{startTime} AND #{endTime}
+    </select>
+
+    <select id="queryUserCorpsDetail" parameterType="com.rmkj.microcap.modules.user.entity.User" resultType="com.rmkj.microcap.modules.user.entity.User">
+        SELECT id,
+          chn_name AS chnName,
+          mobile AS mobile,
+          user_header AS userHeader,
+          register_time AS registerTime,
+          if(parent1_id = #{id}, 1, if(parent2_id = #{id}, 2, 3)) AS corpsType
+        FROM tb_user
+        WHERE (parent1_id = #{id} OR parent2_id = #{id} OR parent3_id = #{id}) AND mobile IS NOT NULL
+        ORDER BY register_time DESC
+    </select>
+</mapper>

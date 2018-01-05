@@ -1,0 +1,80 @@
+.wrap-page {
+    background-color: #000000;
+}
+.in_top{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #000;
+    margin-left: 3.8rem;
+    margin-top: 0.2rem;
+    animation: mymove 6s infinite;
+    animation-timing-function: linear;
+}
+.in_top a{
+    width: 5rem;
+    height:5rem;
+    border-radius: 50%;
+    position: relative;
+}
+.in_top a img{
+    margin: 0 auto;
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    top: 0.05rem;
+    left: 0.05rem;
+}
+.in_ct p{
+    font-size:0.6rem;
+    line-height:0.9rem;
+    color:#a1a1a1;
+    padding-top: 0.6rem;
+}
+.in_ct_line{
+    width: 2rem;
+    height:0.1rem;
+    background: #d3af30;
+    margin: auto;
+    margin-top: 0.3rem;
+}
+.about-titlesmall{
+    padding: 0.2rem;
+    border:2px dashed #333333;
+    margin-top: 0.3rem;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    font-size:0.3rem;
+    line-height:0.5rem;
+    color:#a1a1a1;
+}
+.nr-gywm{
+    margin:0.3rem 0.3rem 0 0.3rem;
+}
+.nr-gywm h4{
+    font-size:0.3rem;
+    color:#a1a1a1;
+    line-height:0.6rem;
+    font-weight:normal;
+}
+.nr-gywm>h4>span,.row-bot>h4>span{
+    width: 0.05rem;
+    height:1rem;
+    background: #d3af30;
+    margin-right: 0.2rem;
+}
+.nr-gywm p{
+    font-size: 0.3rem;
+    line-height: 0.6rem;
+    color:#6f6f6f;
+    margin: 2px 0;
+}
+.row-bot{
+    margin-bottom: 0.3rem;
+}
+.row-bot .youshi{
+    color:#d3af30;
+    font-size:0.8rem;
+    padding-top: 0.2rem;
+    padding-bottom:0.2rem;
+}

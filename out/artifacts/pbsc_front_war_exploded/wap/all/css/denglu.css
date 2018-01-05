@@ -1,0 +1,211 @@
+.wrap-page {
+    top: 0rem;
+    bottom: 0rem;
+}
+.login_name{
+    background: url(../../all/image/log.png) no-repeat center center;
+    width: 5.5rem;
+    height: 4rem;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0.5rem;
+    left: 1.5rem;
+}
+.user_top {
+    /*width: 10.1rem;*/
+    width: 9.1rem;
+    height: 17rem;
+   /* margin-top: 0.3rem;*/
+    margin-top: 1rem;
+    margin-bottom: 1.2rem;
+    position: absolute;
+    overflow: hidden;
+    padding: 0rem 0.4rem 0.2rem 0.4rem;
+    background: #1e1e1e;
+    background-size: 10rem 17rem;
+   /* margin-left: 0.4rem;*/
+    margin-left: 0.9rem;
+    margin-right: 0.2rem;
+    border-radius: 0.2rem;
+    line-height: 0.9rem;
+    border: 2px solid #000;
+}
+.login_b{
+    position: absolute;
+   /* top: 6rem;*/
+    top: 5rem;
+    left: 0.25rem;
+}
+.w-item {
+    /*width: 9.5rem;*/
+    width: 8.5rem;
+    height: 1.2rem;
+    position: relative;
+    float: left;
+    line-height: 1.2rem;
+    font-size: 0.45rem;
+    background: #010101;
+    color: #ccc7c7;
+    border-radius: 0.1rem;
+    padding-left: 0.3rem;
+    margin-bottom: 0.4rem;
+     border: 0.03rem solid #000;
+}
+.w-item input{
+    /*float: left; */
+    text-align: left;
+    height: 1.3rem;
+    width: 6rem;
+    line-height: 1.3rem;
+    border-radius: .2rem;
+    font-size: .4rem;
+    background: transparent;
+    color: #ccc7c7;
+    padding-left: 0.6rem;
+}
+i.login_line{
+    background: url("../../all/image/login_line.png") no-repeat center center;
+    width:0.03rem;
+    height:0.6rem;
+    background-size: 0.03rem 0.6rem;
+    position:absolute;
+    top:0.3rem;
+    left:2rem;
+}
+.checkbox_num span{
+    font-size:0.35rem;
+    color:#ccc7c7;
+}
+.w-item input.copy {
+    width: 5rem;
+    height: 1.3rem;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: .2rem;
+    font-size: .35rem;
+    background: #010101;
+    color:#fff;
+}
+.w-item input.fill,.w-item input.green {
+    float: right;
+    width: 3rem;
+    height: 1.2rem;
+    line-height:1.2rem;
+    text-align: center;
+    background: #bfa4a4;
+    border-radius: 0.15rem;
+    border: 0;
+    position: absolute;
+    left: 5.5rem;
+    top: 0.1rem;
+    font-size: 0.4rem;
+    color: #FFFFFF;
+    padding-left: 0.4rem;
+    padding-right: 0.5rem;
+    margin-left: 0.3rem;
+}
+.login {
+    /*display: block;*/
+    font-size: 0.6rem;
+    color: #fff;
+    width: 8.8rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    background: #ff8400;
+    border:0;
+    border-radius: 0.2rem;
+}
+.w-item input{
+    /*font-size:0.4rem;*/
+    margin-top:-0.1rem;
+}
+.w-item input.green{
+    width: 2.2rem;
+    text-align: left;
+    padding-left: 0.1rem;
+    background: #61be37;
+}
+.tianxie{
+    background: #010101;
+    border:0;
+}
+.tianxie,.huoqu{
+    background: transparent;
+    padding-left: 0rem;
+}
+.tianxie .yanzhen{
+    width: 7rem;
+    background: #000;
+}
+.huoqu .yanduanx{
+    width: 6rem;
+}
+.huoqu .yanduanx input{
+    width: 3.5rem;
+    font-size: 0.3rem;
+}
+.tianxie .yanzhen input{
+    width: 3.5rem;
+    font-size: 0.4rem;
+    background: transparent;
+}
+.huoqu input.copy{
+    width: 6rem;
+}
+.fuxuan{
+    /*height: 1.3rem;*/
+    position: relative;
+    float: left;
+    line-height: 1rem;
+    font-size: 0.4rem;
+    padding-left: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.fuxuan .checkbox{
+    margin-right: 0.3rem;
+    border: 1px solid #fff;
+    background: transparent;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.fuxuan>span{
+    color:#fff;
+}
+.fuxuan>p{
+    float: right;
+}
+.checkbox_num{
+    width: 5rem;
+}
+.fuxuan .f{
+    /*padding-left: 2rem;*/
+    padding-left: 1.2rem;
+    font-size:0.35rem;
+    color:#fff;
+}
+.login_b>button{
+    /*width: 9.5rem;*/
+    width: 8.5rem;
+    height: 1rem;
+    line-height:1rem;
+    background: #d2b02a;
+    border: 0;
+    font-size: 0.4rem;
+    color: #000;
+    border-radius: 0.26rem;
+    position: relative;
+    left: 0rem;
+}
+.login_b>p{
+    color:#fff;
+    font-size:0.4rem;
+    /*padding-top: 0.3rem;*/
+}
+.login_b>p span{
+    color:#cf372d;
+}
+::-webkit-input-placeholder{
+    color:#fff;
+}

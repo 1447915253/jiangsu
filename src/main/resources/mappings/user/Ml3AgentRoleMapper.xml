@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rmkj.microcap.modules.user.dao.Ml3AgentRoleDao" >
+  <resultMap id="BaseResultMap" type="com.rmkj.microcap.modules.user.entity.Ml3AgentRole" >
+    <id column="agent_id" property="agentId" jdbcType="VARCHAR" />
+    <id column="role_id" property="roleId" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.rmkj.microcap.modules.user.entity.Ml3AgentRole" >
+    delete from tb_ml3_agent_role
+    where agent_id = #{agentId,jdbcType=VARCHAR}
+      and role_id = #{roleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rmkj.microcap.modules.user.entity.Ml3AgentRole" >
+    insert into tb_ml3_agent_role (agent_id, role_id)
+    values (#{agentId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rmkj.microcap.modules.user.entity.Ml3AgentRole" >
+    insert into tb_ml3_agent_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="agentId != null" >
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

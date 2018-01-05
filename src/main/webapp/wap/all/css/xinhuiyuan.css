@@ -1,0 +1,30 @@
+.wrap-page{
+    background: #000a16;
+}
+.user_top{
+    margin-top:0.3rem;
+    margin-bottom: 0.2rem;
+    overflow: hidden;
+    padding: 0.3rem 0.4rem 0.5rem 0.4rem;
+    background: #1e1e1e;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    /*height:3rem;*/
+    border-radius:0.2rem;
+    line-height:0.7rem;
+}
+.user_top h3{
+    font-size:0.55rem;
+    font-weight:normal;
+}
+.user_top h4{
+    color:#bababa;
+    font-weight:normal;
+    font-size:0.35rem;
+}
+.user_top p{
+    color:#bababa;
+    font-weight:normal;
+    font-size:0.35rem;
+}
+/*footer*/

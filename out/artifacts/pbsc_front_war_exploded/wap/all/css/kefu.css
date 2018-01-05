@@ -1,0 +1,29 @@
+.user_top {
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-size: .4rem;
+    z-index: 2;
+    padding: .1rem .35rem;
+    height: 2.48rem;
+    background: #151515;
+    margin-top: 0.3rem;
+}
+.in_topimg{
+    width: 20%;
+    height:2rem;
+}
+.in_topimg>a,.in_topimg>a img{
+    width: 1.66rem;
+    height:1.66rem;
+    border-radius: 50%;
+}
+.user_top_yu{
+    width: 80%;
+    overflow: auto;
+    line-height: 0.8rem;
+    font-size: 0.4rem;
+}
+.user_yu_num{
+    color:#bbb;
+}

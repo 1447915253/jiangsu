@@ -1,0 +1,91 @@
+.wrap-page{
+    background: #000;
+}
+.user_top{
+    /* margin-top: 0.3rem; */
+    margin-bottom: 0.2rem;
+    overflow: hidden;
+    padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+    background: #151515;
+    /* margin-top: 0.2rem; */
+    border-radius: 0.2rem;
+    line-height: 0.9rem;
+    /* border: 2px solid #003469; */
+}
+.user_top .shop_type{
+    text-align:center;
+    font-size:0.3rem;
+    padding-right: 0.2rem;
+    line-height:0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+ul.user_time,ul.user_time_txt{
+    border-bottom:2px solid #1f1f1f;
+    overflow: auto;
+}
+.user_top ul.user_time li,.user_top ul.user_time_txt li{
+    float: left;
+    width: 23%;
+    font-size:0.35rem;
+    color:#c5c5c5;
+    text-align: center;
+    line-height:0.8rem;
+    white-space: nowrap;
+}
+.user_top ul.user_time_txt li{
+    font-size: 0.2rem;
+}
+.user_top ul.user_time li:first-child,.user_top ul.user_time li:last-child{
+    width: 27%;
+}
+.user_top ul.user_time_txt li:first-child,.user_top ul.user_time_txt li:last-child{
+    width: 27%;
+}
+p.no_more{
+    text-align: center;
+    font-size:0.35rem;
+    color:#5f5f5f;
+    line-height:0.8rem;
+}
+.user_top_name {
+    float: left;
+    font-size: 0.45rem;
+}
+.user_top_name select {
+    width: 2.3rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    font-size: 0.35rem;
+    text-align: center;
+    background: #3c3b3b;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+}
+.shaop_name .icon {
+    /* line-height: 0.8rem; */
+    background: #3c3b3b;
+    border-radius: 0.2rem;
+    text-align: center;
+    font-size: 0.4rem;
+    margin-left: 0.3rem;
+    /* margin-right: 0.3rem; */
+    height: 0.9rem;
+    line-height: 0.9rem;
+}
+.his_date {
+    width: 1.3rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+.his_chaxun {
+    width: 1.5rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+.shaop_name{
+    margin-top: 0.6rem;
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    margin-bottom: 0.2rem;
+}

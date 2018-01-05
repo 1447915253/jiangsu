@@ -1,0 +1,241 @@
+
+.user_top{
+    /* margin-top: 0.3rem; */
+    margin-bottom: 0.2rem;
+    overflow: hidden;
+    /* padding: 0.8rem 0.4rem 0.2rem 0.4rem; */
+    /* background: #1e1e1e; */
+    /* margin-left: 0.2rem; */
+    /* margin-right: 0.2rem; */
+    /* border-radius: 0.2rem; */
+    line-height: 0.9rem;
+    /* border: 2px solid #003469; */
+}
+.ad,.ad>.images{
+    width: 100%;
+    height:1.73rem;
+}
+.prompt {
+    line-height: 0.6rem;
+    text-align: center;
+    font-size: 0.3rem;
+}
+.text-red {
+    color: #f91800;
+    font-size:0.4rem;
+}
+.d_money{
+    font-size: 0.4rem;
+    padding: 0.3rem 0.35rem;
+    background: #1e1e1e;
+    border-bottom: 1px solid #000;
+}
+.d_money>span{
+    color: #f91800;
+    font-size:0.4rem;
+}
+.user_top p{
+    line-height: 0.55rem;
+    color: #999999;
+    font-size: 0.3rem;
+}
+.w-item {
+    width: 9.8rem;
+    border-color: #c1c1c1;
+    position: relative;
+    float: left;
+    margin-top: 0.2rem;
+    line-height: 1.4rem;
+    font-size: 0.45rem;
+    background: #1e1e1e;
+    border-radius: 0.2rem;
+    padding-left: 0.45rem;
+    margin-bottom: 0.3rem;
+    margin-left: 0.45rem;
+}
+.w-item input{
+    /*float: left;*/
+    text-align: left;
+    height: 1.3rem;
+    width: 6rem;
+    line-height:1.3rem;
+    border-radius: .2rem;
+    font-size: .45rem;
+    background: #101419;
+    color:#fff;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+}
+.w-item .copy {
+    /*width: 3rem;*/
+    height: 1.1rem;
+    /* padding: 0.6rem; */
+    /* padding-left: 0.5rem; */
+    /* text-align: center; */
+    border-radius: .2rem;
+    font-size: .35rem;
+    /* background: #000c1a; */
+    color: #fff;
+}
+.w-item .fill {
+    width: 4rem;
+    height: 1.1rem;
+    line-height:1.1rem;
+    /* padding: 0.6rem; */
+    /* padding-left: 0.5rem; */
+    /* text-align: center; */
+    border-radius: .2rem;
+    font-size: .35rem;
+    /* background: #000c1a; */
+    color: #000;
+}
+.tianxie{
+    background: #000c1a;
+     margin-top: 0.3rem;
+    padding: 0.4rem 0.4rem 0.2rem 0.4rem;
+    /* margin-left: 0.2rem; */
+    /*height: 1.3rem;*/
+    line-height: 1.3rem;
+    position: relative;
+}
+.fill{
+    position: relative;
+}
+.fill a {
+    padding-left: 2.3rem;
+    line-height: 0.8rem;
+    /*position: absolute;*/
+    font-size: 0.4rem;
+    color:#fff;
+}
+.login {
+    font-size: 0.4rem;
+    color: #000;
+    width: 9.48rem;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.6rem;
+    background: #d3af30;
+    border: 0;
+    border-radius: 0.3rem;
+    margin-left: 0.65rem;
+}
+.tianxie_tu{
+    width: 1.1rem;
+    height: 0.8rem;
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
+}
+.yinlian{
+    background: url("../../all/image/wx1.png") no-repeat center center;
+    background-size: 100%  100%;
+}
+.yinlian-active{
+    background: url("../../all/image/wx1.png") no-repeat center center;
+    background-size: 100%  100%;
+}
+.weixin-active{
+    background: url("../../all/image/zhifubao.png") no-repeat center center;
+    background-size: 100%  100%;
+}
+.weixin{
+    background: url("../../all/image/zhifubao.png") no-repeat center center;
+    background-size: 100%  100%;
+}
+.kuaijie{
+    background: url("../../all/image/yinlian_lv.png") no-repeat center center;
+    background-size: 1.1rem  0.6rem;
+}
+.kuaijie-active{
+    background: url("../../all/image/yinlian_lv.png") no-repeat center center;
+    background-size: 1.1rem  0.6rem;
+}
+.jingdong{
+    background: url("../../all/image/jingdong.jpg") no-repeat center center;
+    background-size: 1.1rem  0.6rem;
+}
+.jingdong-active{
+    background: url("../../all/image/jingdong.jpg") no-repeat center center;
+    background-size: 1.1rem  0.6rem;
+}
+.qqmoney{
+    background: url("../../all/image/qqmoneylv.png") no-repeat center center;
+    background-size: 0.8rem  0.8rem;
+}
+.qqmoney-active{
+    background: url("../../all/image/qqmoneylv.png") no-repeat center center;
+    background-size: 0.8rem  0.8rem;
+}
+.copy a,.fill a{
+    padding-left: 0.5rem;
+    line-height: 0.7rem;
+   /* position: absolute;*/
+    font-size: 0.42rem;
+    color:#bbb;
+    letter-spacing: 0.05rem;
+}
+.copy a{
+    padding-left: 1.6rem;
+    line-height: 0.5rem;
+    /*position: absolute;*/
+    font-size: 0.42rem;
+    padding-bottom: 0.1rem;
+    color: #bbb;
+   /* border-bottom: 2px solid #86c610;*/
+}
+.copy a.active{
+    border-bottom: 2px solid #86c610;
+    padding-bottom: 0.3rem;
+}
+.pa_yc {
+    overflow: auto;
+   /* height: 2.4rem;*/
+    /* margin-left: 0.2rem; */
+    /*margin-right: 0.2rem;*/
+  /*  margin-top: 2.5rem;*/
+    padding: 0.2rem 0.3rem 0rem 0.3rem;
+    background: #1e1e1e;
+    border-bottom: 1px solid #000;
+}
+.pa_y {
+    /*margin-right: -.7rem;*/
+    padding: 0.2rem 0rem 0.2rem 0rem;
+}
+.pa_y li.on {
+    background-color: #d3af30;
+    color:#000;
+}
+.pa_y li:last-child.on {
+    background: #323232;
+    color:#000;
+}
+.pa_y li {
+    float: left;
+    background: #323232;
+    /* border-radius: .1rem; */
+    height:1.3rem;
+    line-height: 1.3rem;
+    width: 3.2rem;
+    text-align: center;
+    font-size: 0.4rem;
+    margin-bottom: .2rem;
+    color: #bbb;
+    cursor: pointer;
+    transition: all 400ms;
+}
+.pa_y li:nth-child(2),.pa_y li:nth-child(5),.pa_y li:nth-child(8){
+    margin-right: .2rem;
+    margin-left: .2rem;
+}
+.pa_y li.other>input{
+    height:0.68rem;
+    line-height: .68rem;
+    width: 3.31rem;
+    background: transparent;
+    color: #bbb;
+    text-align: center;
+    font-size: 0.4rem;
+}
